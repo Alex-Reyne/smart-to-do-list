@@ -1,0 +1,18 @@
+// fonts:
+$button-font: Bebas Neue, cursive;
+$main-text: Roboto, sans-serif;
+
+// colors
+$black: #1B1B1B;
+$background: #E58080;
+$button-color: #6DD3C1;
+$white: #FFFFFF;
+
+// align items
+@mixin vert-align {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}

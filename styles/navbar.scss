@@ -1,0 +1,36 @@
+@import 'base';
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $black;
+  color: $white;
+  height: 5rem;
+  width: 100%;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+
+  a {
+    padding-left: 1rem;
+  }
+
+  .logo {
+    font-size: x-large;
+    font-family: $button-font;
+  }
+
+  .nav-text {
+    display: flex;
+    flex-direction: row;
+    font-size: x-large;
+    font-family: $button-font;
+  }
+}
+
+
+
+

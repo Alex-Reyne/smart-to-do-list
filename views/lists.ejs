@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/main_lists.css">
+
+   <!-- Import google fonts  -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+
+  <title>Smart To-Do Lists</title>
+</head>
+<body>
+  <%- include('partials/_navbar.ejs') %>
+
+  <main>
+    <p>What do you want to do?</p>
+    <form action="" method="POST">
+      <textarea name="" id="" cols="30" rows="1" placeholder="Things to do..."></textarea>
+      <button>Add</button>
+    </form>
+    <!-- <div class="container"> -->
+      <div>Places to eat</div>
+      <div>Things to Read</div>
+      <div>Stuff to watch</div>
+      <div>Junk to buy</div>
+    <!-- </div> -->
+  </main>
+</body>
+</html>

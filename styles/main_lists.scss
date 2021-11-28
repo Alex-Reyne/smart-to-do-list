@@ -1,0 +1,70 @@
+@import 'base';
+
+.nav-bar {
+  margin-left: -0.5em;
+}
+
+.nav-text {
+  margin-right: 1.5em;
+}
+.logo{
+  margin-left: -0.5em;
+}
+body {
+  background-color: $background;
+}
+
+main {
+  margin-top: 8em;
+  color: $white;
+  font-family: $button-font;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+p {
+  font-size: x-large;
+  font-family: $main-text;
+  margin-bottom: 1em;
+}
+
+button {
+  display: block;
+  border-radius: 0.8em;
+  background-color: $button-color;
+  font-family: $button-font;
+  border: none;
+  color: $white;
+  padding: 0.5em 0.8em 0.5em 0.8em;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+textarea {
+  border: none;
+  border-radius: 0.8em;
+  width: 80%;
+  resize: none;
+  outline: none;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  padding: 0.5em 0.5em;
+  padding-left: 0.75em;
+  font-size: large;
+  font-family: $main-text;
+  width: 100%;
+}
+
+div {
+  background-color: $black;
+  margin-bottom: 2em;
+  padding: 1em 1em;
+  @include vert-align;
+  font-size: 1.5em;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

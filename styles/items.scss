@@ -7,6 +7,10 @@ button {
   margin-left: 1.5rem;
 }
 
+td {
+  display: flex;
+}
+
 #table {
   padding: 1em 1em;
   font-size: 1.5em;
@@ -19,10 +23,30 @@ button {
   background-color: $black;
   color: $white;
   font-family: $button-font;
+  font-size: 2rem;
 }
 
 .rows {
   background-color: $white;
   color: $black;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-family: $main-text;
+}
+
+td {
+  padding: .5rem 0 .5rem 0;
+}
+
+.far {
+  margin: 0 1rem 0 .5rem;
+}
+
+td {
+  @include vert-align;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-text {
+  align-self: flex-start;
 }

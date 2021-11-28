@@ -23,21 +23,24 @@
   </head>
 <body>
 
-  <div class="card text-center">
-    <div class="card-header"></div>
-  <main style="margin: 1em;">
-    <form class="form-inline" action="/signup" method="POST">
+  <main>
+    <form id="signup-form" action="/signup" method="POST">
       <div class="container">
-        <input class="form-control" type="username" name="username" placeholder="Username" style="width: 300px; margin: 1em">
-        <input class="form-control" type="email" name="email" placeholder="Email" style="width: 300px; margin: 1em">
-        <input class="form-control" type="password" name="password" placeholder="Password" style="width: 300px; margin: 1em">
-        <div class="mycentered-text">
-          <button type="submit" class="button">Sign up</button>
+        <div>
+          <input class="form-control" type="username" name="username" placeholder="Username">
+        </div>
+        <div>
+          <input class="form-control" type="email" name="email" placeholder="Email">
+        </div>
+        <div>
+          <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div>
+          <button class="button" type="submit">Sign up</button>
         </div>
       </div>
     </form>
   </main>
-  </div>
 
 </body>
 </html>

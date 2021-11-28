@@ -1,8 +1,9 @@
+const { application } = require('express');
 const express = require('express');
 const router  = express.Router();
 
-router.get('/items', (req, res) => {
-  res.render("lists");
+router.get('/', (req, res) => {
+  res.render("items.ejs");
 });
 
 module.exports = router;

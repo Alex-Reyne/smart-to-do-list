@@ -1,0 +1,26 @@
+@import 'base';
+
+button {
+  @include hori-align;
+  @include button;
+  margin-top: 2rem;
+}
+
+#table {
+  padding: 1em 1em;
+  font-size: 1.5em;
+  margin: auto;
+  width: 100%;
+}
+
+.table-title {
+  @include vert-align;
+  background-color: $black;
+  color: $white;
+  font-family: $button-font;
+}
+
+.rows {
+  background-color: $white;
+  color: $black;
+}

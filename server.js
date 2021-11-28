@@ -53,6 +53,7 @@ app.use("/signup", signupRoutes);
 
 app.use("/profile", profileRoutes(db));
 app.use("/lists", listRoutes);
+app.use("/items", listitemsRoutes);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).

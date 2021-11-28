@@ -8,15 +8,14 @@ nav {
   color: $white;
   height: 5rem;
   width: 100%;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  padding-left: 2rem;
+  padding-right: 2rem;
   overflow: hidden;
   position: fixed;
   top: 0;
   z-index: 999;
 
   a {
-    padding-left: 1rem;
     color: inherit;
     text-decoration: inherit;
   }
@@ -31,6 +30,10 @@ nav {
     flex-direction: row;
     font-size: x-large;
     font-family: $button-font;
+  }
+
+  #signup {
+    margin-left: 1rem;
   }
 }
 

@@ -1,15 +1,5 @@
 @import 'base';
 
-.nav-bar {
-  margin-left: -0.5em;
-}
-
-.nav-text {
-  margin-right: 1.5em;
-}
-.logo{
-  margin-left: -0.5em;
-}
 body {
   background-color: $background;
 }
@@ -18,8 +8,8 @@ main {
   margin-top: 8em;
   color: $white;
   font-family: $button-font;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
 }
 
 p {
@@ -29,30 +19,12 @@ p {
 }
 
 button {
-  display: block;
-  border-radius: 0.8em;
-  background-color: $button-color;
-  font-family: $button-font;
-  border: none;
-  color: $white;
-  padding: 0.5em 0.8em 0.5em 0.8em;
-  font-size: 1.2em;
   margin-bottom: 1em;
+  @include button;
 }
 
 textarea {
-  border: none;
-  border-radius: 0.8em;
-  width: 80%;
-  resize: none;
-  outline: none;
-  margin-top: 0.5em;
-  margin-bottom: 1em;
-  padding: 0.5em 0.5em;
-  padding-left: 0.75em;
-  font-size: large;
-  font-family: $main-text;
-  width: 100%;
+  @include textbox;
 }
 
 div {

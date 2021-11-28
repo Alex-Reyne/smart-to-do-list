@@ -1,0 +1,43 @@
+@import 'base';
+
+.nav-bar {
+  margin-left: -0.5em;
+}
+.nav-text {
+  margin-left: -0.5em;
+}
+h1 {
+  font-size: xx-large;
+  margin-bottom: 2em;
+}
+
+body {
+  background-color: $background;
+  margin-top: 8em;
+  color: $white;
+  font-family: $button-font;
+}
+main {
+  margin-left: 1em;
+}
+p {
+  font-size: x-large;
+  font-family: $main-text;
+  margin-bottom: 1.5em;
+}
+button {
+  border-radius: 0.8em;
+  background-color: $button-color;
+  font-family: $button-font;
+  border: none;
+  color: $white;
+  padding: 0.5em 0.8em 0.5em 0.8em;
+  font-size: 1.2em;
+}
+.btnright {
+  margin-left: 1em;
+}
+
+.nav-text {
+  margin-right: 1.5em;
+}

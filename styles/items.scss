@@ -8,7 +8,10 @@ button {
 }
 
 td {
+  @include vert-align;
   display: flex;
+  justify-content: space-between;
+  padding: .5rem 0 .5rem 0;
 }
 
 #table {
@@ -33,18 +36,8 @@ td {
   font-family: $main-text;
 }
 
-td {
-  padding: .5rem 0 .5rem 0;
-}
-
 .far {
   margin: 0 1rem 0 .5rem;
-}
-
-td {
-  @include vert-align;
-  display: flex;
-  justify-content: space-between;
 }
 
 .item-text {

@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/navbar.css">
   <link rel="stylesheet" href="/styles/main_lists.css">
 
@@ -14,8 +17,9 @@
 
   <title>Smart To-Do Lists</title>
 </head>
+<!-- NAV BAR  -->
+<%- include('partials/_navbar') %>
 <body>
-  <%- include('partials/_navbar.ejs') %>
 
   <main>
     <p>What do you want to do?</p>
@@ -24,10 +28,10 @@
       <button>Add</button>
     </form>
     <!-- <div class="container"> -->
-      <div>Places to eat</div>
-      <div>Things to Read</div>
-      <div>Stuff to watch</div>
-      <div>Junk to buy</div>
+      <div id="eat">Places to eat</div>
+      <div id="read">Things to Read</div>
+      <div id="watch">Stuff to watch</div>
+      <div id="buy">Junk to buy</div>
     <!-- </div> -->
   </main>
 </body>

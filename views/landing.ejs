@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/landing.css">
   <link rel="stylesheet" href="/styles/navbar.css">
 
@@ -14,15 +16,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
   <title>Smart List!</title>
 </head>
+<!-- NAV BAR  -->
+<%- include('partials/_navbar') %>
 <body>
-  <%- include('partials/_navbar.ejs') %>
   <main>
     <h1>Smart List!</h1>
     <p>Auto categorize any item into it's<br>
       appropriate to-do list!</p>
     <div class="buttons">
-        <button class="btnleft">Login</button>
-        <button class="btnright">Sign up</button>
+      <form action="/login">
+        <button type="submit" class="btnleft">Login</button>
+      </form>
+      <form action="/signup">
+        <button type="submit" class="btnright">Sign up</button>
+      </form>
     </div>
   </main>
 </body>

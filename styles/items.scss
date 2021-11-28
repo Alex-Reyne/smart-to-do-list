@@ -3,7 +3,8 @@
 button {
   @include hori-align;
   @include button;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 #table {
@@ -14,7 +15,6 @@ button {
 }
 
 .table-title {
-  @include vert-align;
   background-color: $black;
   color: $white;
   font-family: $button-font;
@@ -23,4 +23,5 @@ button {
 .rows {
   background-color: $white;
   color: $black;
+  font-size: 1rem;
 }

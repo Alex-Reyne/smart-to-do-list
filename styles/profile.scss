@@ -1,23 +1,25 @@
 @import 'base';
 
 .profile {
-  display: flex;
+  @include hori-align;
   flex-direction: column;
   position: absolute;
   top: 8rem;
   max-width: 30rem;
   // max-height: 30rem;
   color: $white;
+  padding-bottom: 2rem;
 
 
   .picture {
+    @include hori-align;
     display: inline-block;
     position: relative;
     width: 20rem;
     height: 20rem;
     overflow: hidden;
     border-radius: 50%;
-
+    margin-bottom: 2rem;
   }
 
   img {
@@ -27,9 +29,17 @@
   }
 
   .name {
-    @include vert-align;
-    font-size: 2.5rem;
+    @include hori-align;
+    text-align: center;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+    font-size: 2rem;
     margin: -3rem;
+  }
+
+  .email {
+    @include hori-align;
+    font-size: 1.5rem;
   }
 
   button {

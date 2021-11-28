@@ -1,24 +1,25 @@
 $(document).ready(function() {
 
-  $('#username').hide();
-  $('#email').hide();
-  $('#password').hide();
+  $('#edit-username').hide();
+  $('#edit-email').hide();
+  $('#edit-password').hide();
   $('#update-profile').hide();
 
 
   $('#edit-profile').on('click', function() {
-    $('#edit-profile').slideUp();
-    $('#username').slideDown();
-    $('#email').slideDown();
-    $('#password').slideDown();
-    $('#update-profile').slideDown();
+    $('#edit-profile').hide();
+    $('#edit-username').slideDown();
+    $('#edit-email').slideDown();
+    $('#edit-password').slideDown();
+    $('#update-profile').show();
   })
+
   $('#update-profile').on('click', function() {
-    $('#edit-profile').slideDown();
-    $('#username').slideUp();
-    $('#email').slideUp();
-    $('#password').slideUp();
-    $('#update-profile').slideUp();
+    $('#edit-profile').show();
+    $('#edit-username').slideUp();
+    $('#edit-email').slideUp();
+    $('#edit-password').slideUp();
+    $('#update-profile').hide();
   })
 
 });

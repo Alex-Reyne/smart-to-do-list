@@ -16,3 +16,23 @@ $white: #FFFFFF;
   justify-content: center;
 
 }
+
+@mixin hori-align {
+
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+
+}
+
+@mixin button {
+  color: $white;
+  background-color: $button-color;
+  padding: 0.6rem 2rem;
+  border-radius: 3rem;
+  font-family: $button-font;
+  font-size: 2rem;
+  border: 0;
+  cursor: pointer;
+  max-width: 13rem;
+}

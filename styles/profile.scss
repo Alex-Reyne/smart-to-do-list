@@ -1,0 +1,42 @@
+@import 'base';
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 8rem;
+  max-width: 30rem;
+  // max-height: 30rem;
+  color: $white;
+
+
+  .picture {
+    display: inline-block;
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    overflow: hidden;
+    border-radius: 50%;
+
+  }
+
+  img {
+    width: auto;
+    height: 100%;
+    margin-left: -5rem;
+  }
+
+  .name {
+    @include vert-align;
+    font-size: 2.5rem;
+    margin: -3rem;
+  }
+
+  button {
+    @include hori-align;
+    @include button;
+    margin-top: 2rem;
+  }
+}
+
+

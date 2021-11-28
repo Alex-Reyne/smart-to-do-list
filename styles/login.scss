@@ -1,0 +1,18 @@
+@import 'base';
+
+button {
+  @include hori-align;
+  @include button;
+  margin-top: 2rem;
+}
+
+
+#login-form {
+  @include vert-align;
+  width: 369px;
+  height: 35px;
+  left: 27px;
+  top: 196px;
+  border-radius: 30px
+}
+

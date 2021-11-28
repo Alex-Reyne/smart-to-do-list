@@ -37,6 +37,20 @@
     @include button;
     margin-top: 2rem;
   }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      margin-top: 1rem;
+    }
+
+    #edit-password {
+      margin-top: 1rem;
+    }
+  }
 }
 
 

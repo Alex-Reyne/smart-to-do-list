@@ -38,3 +38,11 @@ $white: #FFFFFF;
   max-width: auto;
   max-height: 3rem;
 }
+
+@mixin textbox {
+  width: 25rem;
+  height: 3rem;
+  border-radius: 3rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}

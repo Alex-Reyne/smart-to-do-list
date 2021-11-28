@@ -42,6 +42,7 @@ const loginRoutes = require("./routes/login");
 const signupRoutes = require("./routes/signup");
 
 const listRoutes = require("./routes/lists");
+const listitemsRoutes = require("./routes/listitems");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));

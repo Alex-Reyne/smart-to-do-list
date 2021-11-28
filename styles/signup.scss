@@ -3,6 +3,8 @@
 button {
   @include button;
   margin-top: 0.5rem;
+  font-size: 1.3rem;
+  padding: 0.5em 0.8em 0.5em 0.8em;
 }
 
 #login-form {

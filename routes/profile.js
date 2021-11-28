@@ -32,7 +32,6 @@ const userProfile = (db) => {
     WHERE id = 1;
     `, queryParams)
     .then((data) => {
-      // res.send()
       res.redirect('/profile')
     })
     .catch((err) => {

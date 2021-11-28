@@ -18,6 +18,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/edit-profile.js"></script>
 
     <!-- NAV BAR  -->
     <%- include('partials/_navbar') %>
@@ -30,10 +31,26 @@
     <span class='name'>
       <h1><%= username.toUpperCase(); %></h1>
     </span>
+    <form id='username' action="/profile" method="POST">
+      <textarea name="text" id="edit-username" placeholder="new username..."></textarea>
+    </form>
     <span class='email'>
       <h1><%= email.toUpperCase(); %></h1>
     </span>
-    <button>EDIT PROFILE</button>
+    <form id='email' action="/profile" method="POST">
+      <textarea name="text" id="edit-email" placeholder="new email..."></textarea>
+    </form>
+    <form id='password' action="/profile" method="POST">
+      <textarea name="text" id="edit-password" placeholder="new password..."></textarea>
+    </form>
+    <button id='edit-profile'>EDIT PROFILE</button>
+    <!-- <div id='error-alert' class='error-alert1'>
+      <p class='error'>Tweet can't be blank!</p>
+    </div>
+    <div id='error-alert' class='error-alert2'>
+      <p class='error'>Tweet too long!</p>
+    </div> -->
+    <button id='update-profile'>UPDATE PROFILE</button>
   </div>
 
 

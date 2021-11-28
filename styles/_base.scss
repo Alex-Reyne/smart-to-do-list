@@ -26,6 +26,7 @@ $white: #FFFFFF;
 }
 
 @mixin button {
+  @include vert-align;
   color: $white;
   background-color: $button-color;
   padding: 0.6rem 2rem;
@@ -34,5 +35,6 @@ $white: #FFFFFF;
   font-size: 2rem;
   border: 0;
   cursor: pointer;
-  max-width: 13rem;
+  max-width: auto;
+  max-height: 3rem;
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+
+    <!-- CSS STYLE SHEETS  -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+
+    <!-- GOOGLE FONTS  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Pacifico&family=Roboto&family=Source+Sans+Pro:wght@300;600&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <!-- NAV BAR  -->
+    <%- include('partials/_navbar') %>
+  </head>
+<body>
+
+  <div class="card text-center">
+    <div class="card-header"></div>
+  <main style="margin: 1em;">
+    <form class="form-inline" action="/login" method="POST">
+      <div class="container">
+        <input class="form-control" type="email" name="email" placeholder="Email" style="width: 300px; margin: 1em">
+        <input class="form-control" type="password" name="password" placeholder="Password" style="width: 300px; margin: 1em">
+        <div class="mycentered-text">
+          <button type="submit" class="button">Sign up</button>
+        </div>
+      </div>
+    </form>
+  </main>
+  </div>
+
+</body>
+</html>

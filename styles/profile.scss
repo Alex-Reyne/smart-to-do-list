@@ -60,6 +60,10 @@
     #edit-password {
       margin-top: 1rem;
     }
+
+    textarea {
+      @include textbox;
+    }
   }
 }
 

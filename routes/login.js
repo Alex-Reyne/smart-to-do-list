@@ -7,7 +7,12 @@ const { login } = require('./helperFunctions.js');
 
 const loginPage = (db) => {
   router.get('/', (req, res) => {
-    res.render("login.ejs");
+    const id = req.session.user_id;
+    db.query(`SELECT * FROM users WHERE id = $1`, [id])
+      .then(data => {
+        const user = data.rows[0]
+        res.render("login", user);
+      })
   });
 
 // Login user with the information provided in the form

@@ -6,6 +6,11 @@ const router  = express.Router();
 const userProfile = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id
+
+    if (!id) {
+      return res.redirect('/login');
+    }
+
     db.query(`SELECT * FROM users WHERE id = ${id};`)
       .then(data => {
         const users = data.rows[0];

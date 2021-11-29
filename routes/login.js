@@ -20,7 +20,8 @@ router.post('/', (req, res) => {
       return res.send('just checking');
     }
     req.session.user_id = user.id;
-    res.send({username: user.username, email: user.email, id: user.id});
+    res.redirect("lists");
+    // res.send({username: user.username, email: user.email, id: user.id});
   })
   .catch(err => res.send(err));
 });

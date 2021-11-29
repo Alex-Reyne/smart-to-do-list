@@ -8,6 +8,7 @@ const router  = express.Router();
 // module.exports = router;
 const userLists = (db) => {
   router.get("/", (req, res) => {
+    const id = req.session.user_id
     db.query(`SELECT *
     FROM users`)
       .then(result => {

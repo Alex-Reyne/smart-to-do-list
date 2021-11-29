@@ -10,39 +10,18 @@ const loginPage = (db) => {
     const id = req.session.user_id
 
     if (id) {
-
-      db.query(`SELECT * FROM users WHERE id = ${id}`)
-    .then(data => {
-      const users = data.rows[0];
-      console.log(data.rows)
-
-      const templateVars = {
-        user_id: users.id,
-        email: users.email,
-        username: users.username,
-        profile_pic: users.profile_pic
-      }
-
-      console.log(templateVars)
-      res.render('login', templateVars);
-      return users;
-    })
-    .catch(err => {
-      res
-      .status(500)
-      .json({ error: err.message });
-      });
+      return res.redirect('/lists');
     }
 
     const templateVars = {
-      user_id: undefined,
-      email: undefined,
-      username: undefined,
-      profile_pic: undefined
+      user_id: null,
+      email: null,
+      username: null,
+      profile_pic: null
     }
 
     console.log(templateVars)
-    res.render('login', templateVars);
+    return res.render('login', templateVars);
 
     });
 

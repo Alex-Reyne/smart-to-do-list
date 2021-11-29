@@ -1,7 +1,7 @@
 const { application } = require('express');
 const express = require('express');
 const router  = express.Router();
-
+const { wolfRam } = require('../lib/apis.js')
 const userItems = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id
@@ -59,8 +59,19 @@ const userItems = (db) => {
     }
     else if (item.includes('buy')) {
       listId = 4;
-    }
-    console.log(listId)
+    } else
+
+    // if no stings match, look in the api data.#add
+    // api logic:
+    // http://api.wolframalpha.com/v2/query?appid=DEMO&input=tides%20seattle&output=json
+
+    const keyWords = []
+
+    if (wolfRam(item).includes('')) {
+
+    };
+    //
+
     db.query(`INSERT INTO items
     (name, list_id, user_id) VALUES ('${item}', ${listId}, ${id})
     RETURNING *;
@@ -75,19 +86,6 @@ const userItems = (db) => {
         .json({ error: err.message });
     });
   })
-
-  // app.post("/urls", (req, res) => {
-  //   const shortGen = generateRandomString();
-  //   const userid = req.session.id;
-
-  //   if (!userid) {
-  //     return res.sendStatus(403); // prevents people from creating new urls using cURL in terminal;
-  //   }
-
-  //   urlDatabase[shortGen] = { longURL: req.body.longURL, userID: req.session.id };
-  //   res.redirect(`/urls/${shortGen}`);
-  // });
-
 
   return router;
 };

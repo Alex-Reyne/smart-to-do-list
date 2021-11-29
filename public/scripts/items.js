@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   $('.fa-check-square').hide();
 
@@ -9,6 +10,10 @@ $(document).ready(function() {
   $('.fa-check-square').on('click', function() {
     $('.fa-square').show();
     $('.fa-check-square').hide();
+  });
+
+  $('#back').on('click', function() {
+    location.href = '/lists'
   });
 
 });

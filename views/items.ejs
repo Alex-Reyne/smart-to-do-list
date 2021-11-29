@@ -22,8 +22,35 @@
   <%- include('partials/_navbar.ejs') %>
 </head>
 <body>
+
+<div class='content'>
+  <section>
     <button id='back'>Back</button>
-    <table id='table'>
+    <div class='list-title'>
+      <h1>Junk To Buy</h1>
+    </div>
+
+    <div class='item-list'>
+
+      <div class='item-row'>
+        <i class="far fa-square"></i>
+        <i class="far fa-check-square"></i>
+        <h3>item 1</h3>
+          <i class="far fa-minus-square"></i>
+      </div>
+
+      <div class='item-row'>
+        <i class="far fa-square"></i>
+        <i class="far fa-check-square"></i>
+        <h3>item 2</h3>
+        <i id='delete-item' class="far fa-minus-square" type='submit' method='post'></i>
+      </div>
+
+    </div>
+
+  </section>
+</div>
+    <!-- <table id='table'>
       <th class='table-title'>Places to eat</th>
       <tr class='rows'>
         <td><i class="far fa-check-square"></i><i class="far fa-square"></i><div class='item-text'>1</div><i class="far fa-minus-square"></i></td>
@@ -34,7 +61,7 @@
       <tr class='rows'>
         <td><i class="far fa-check-square"></i><i class="far fa-square"></i><div class='item-text'>3</div><i class="far fa-minus-square" id='delete'></i></td>
       </tr>
-    </table>
+    </table> -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/items.js"></script>
 </body>

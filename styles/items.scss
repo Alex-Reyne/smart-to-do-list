@@ -1,45 +1,76 @@
 @import 'base';
 
-button {
+.content {
+  @include hori-align;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 90%
+}
+
+#back {
   @include hori-align;
   @include button;
-  margin-top: 2rem;
-  margin-left: 1.5rem;
-}
-
-td {
-  @include vert-align;
-  display: flex;
-  justify-content: space-between;
-  padding: .5rem 0 .5rem 0;
-}
-
-#table {
-  padding: 1em 1em;
-  font-size: 1.5em;
-  margin: auto;
-  width: 100%;
-}
-
-.table-title {
-  @include vert-align;
-  background-color: $black;
-  color: $white;
-  font-family: $button-font;
-  font-size: 2rem;
-}
-
-.rows {
-  background-color: $white;
-  color: $black;
-  font-size: 1.5rem;
-  font-family: $main-text;
-}
-
-.far {
-  margin: 0 1rem 0 .5rem;
-}
-
-.item-text {
   align-self: flex-start;
+  margin-top: 0;
 }
+
+
+.list-title {
+  @include vert-align;
+  background-color:$black;
+  margin-top: 1rem;
+  height: 4rem;
+  width: 100%;
+
+  h1 {
+    margin: 0 0 0 0;
+  }
+
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  color: $black;
+  background-color: $white;
+  font-family: $main-text;
+  font-size: x-large;
+  width: 100%;
+
+  .item-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+
+    h3 {
+      flex-grow: 3;
+      margin: 0 0 0 1rem;
+    }
+  }
+
+  .far {
+    color: $black;
+    cursor: pointer;
+  }
+
+  .fa-square {
+    margin-left: 1rem;
+  }
+
+  .fa-check-square {
+    margin-left: 1rem;
+  }
+
+  .fa-minus-square {
+    justify-self: flex-end;
+    color: red;
+    margin: 0 1rem 0 1rem;
+  }
+
+}
+
+

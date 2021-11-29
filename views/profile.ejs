@@ -28,7 +28,7 @@
   </head>
 <body>
   <div class='profile'>
-    <form action="/profile/<%= id %>" method="POST">
+    <form action="/profile/<%= user_id %>" method="POST">
     <span class='picture'>
       <img src='<%= profile_pic %>' alt='profile picture'>
     </span>
@@ -40,7 +40,7 @@
         <h1><%= email.toUpperCase(); %></h1>
       </span>
         <textarea name="email" id="edit-email"><%= email %></textarea>
-        <textarea name="password" id="edit-password"><%= password %></textarea>
+        <textarea name="password" id="edit-password"></textarea>
         <button id='update-profile' type="submit">UPDATE PROFILE</button>
     </form>
     <button id='edit-profile'>EDIT PROFILE</button>

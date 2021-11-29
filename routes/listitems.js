@@ -2,16 +2,23 @@ const { application } = require('express');
 const express = require('express');
 const router  = express.Router();
 
-
 const userItems = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id
-    db.query(`SELECT items.name, users.*
-    FROM items
-    JOIN lists ON lists.id = list_id
-    JOIN users ON users.id = user_id
-    WHERE lists.name LIKE '%buy%'
-    AND users.id = 1;`)
+
+  if (!id) {
+    const templateVars = {
+      user_id: null,
+      email: null,
+      username: null,
+      profile_pic: null
+    }
+
+    console.log(templateVars)
+    return res.render('items', templateVars)
+  }
+    db.query(`SELECT *
+    FROM users WHERE id = ${id};`)
       .then(result => {
         const items = result.rows[0];
 
@@ -21,8 +28,7 @@ const userItems = (db) => {
           user_id: items.id,
           email: items.email,
           username: items.username,
-          profile_pic: items.profile_pic,
-          name: items.name
+          profile_pic: items.profile_pic
         }
 
         console.log(templateVars)
@@ -37,5 +43,4 @@ const userItems = (db) => {
   });
   return router;
 };
-
 module.exports = userItems;

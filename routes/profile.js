@@ -37,17 +37,17 @@ const userProfile = (db) => {
     queryParams.push(req.body.password)
 
     db.query(`
-    UPDATE users
-    SET username = $1, email = $2, password = $3
-    WHERE id = 1;
+      UPDATE users
+      SET username = $1, email = $2, password = $3
+      WHERE id = 1;
     `, queryParams)
-    .then((data) => {
-      res.redirect('/profile')
-    })
-    .catch((err) => {
-      console.log('ERROR:', err);
-      res.status(500).send();
-    } )
+      .then((data) => {
+        res.redirect('/profile')
+      })
+      .catch((err) => {
+        console.log('ERROR:', err);
+        res.status(500).send();
+      } )
   })
   return router;
 };

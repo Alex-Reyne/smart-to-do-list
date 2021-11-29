@@ -22,6 +22,11 @@ const loginPage = (db) => {
         res.render("login", templateVars);
         return users;
       })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
 
 // Login user with the information provided in the form

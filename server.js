@@ -71,8 +71,21 @@ app.use("/items", listitemsRoutes(db));
 
 app.get("/", (req, res) => {
   const id = req.session.user_id
+
+  if (!id) {
+    const templateVars = {
+      user_id: null,
+      email: null,
+      username: null,
+      profile_pic: null
+    }
+
+    console.log(templateVars)
+    return res.render('landing', templateVars)
+  }
+  console.log('========', id)
     db.query(`SELECT *
-    FROM users`)
+    FROM users WHERE id = ${id};`)
       .then(result => {
         const items = result.rows[0];
 

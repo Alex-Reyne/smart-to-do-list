@@ -8,37 +8,52 @@ const { login } = require('./helperFunctions.js');
 const loginPage = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id
-    db.query(`SELECT * FROM users`)
+
+    if (id) {
+
+      db.query(`SELECT * FROM users WHERE id = ${id}`)
     .then(data => {
       const users = data.rows[0];
       console.log(data.rows)
 
-        const templateVars = {
-          user_id: users.id,
-          email: users.email,
-          username: users.username,
-          profile_pic: users.profile_pic
-        }
+      const templateVars = {
+        user_id: users.id,
+        email: users.email,
+        username: users.username,
+        profile_pic: users.profile_pic
+      }
 
-        console.log(templateVars)
-        res.render('login', templateVars);
-        return users;
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      console.log(templateVars)
+      res.render('login', templateVars);
+      return users;
+    })
+    .catch(err => {
+      res
+      .status(500)
+      .json({ error: err.message });
       });
-  });
+    }
 
-// Login user with the information provided in the form
-router.post('/', (req, res) => {
-  const {email, password} = req.body;
-  login(email, password, db)
-  .then(user => {
-    if (!user) {
-      res.status(401);
-      return res.send('just checking');
+    const templateVars = {
+      user_id: undefined,
+      email: undefined,
+      username: undefined,
+      profile_pic: undefined
+    }
+
+    console.log(templateVars)
+    res.render('login', templateVars);
+
+    });
+
+    // Login user with the information provided in the form
+    router.post('/', (req, res) => {
+      const {email, password} = req.body;
+      login(email, password, db)
+      .then(user => {
+        if (!user) {
+          res.status(401);
+          return res.send('just checking');
     }
     req.session.user_id = user.id;
     res.redirect("lists");

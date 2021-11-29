@@ -6,5 +6,6 @@ CREATE TABLE items (
   list_id INTEGER REFERENCES lists(id) ON DELETE CASCADE,
   name VARCHAR(255) NOT NULL,
   is_completed BOOLEAN NOT NULL DEFAULT FALSE,
-  delete_date_time DATE DEFAULT NULL
+  delete_date_time DATE DEFAULT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );

@@ -83,30 +83,9 @@ app.get("/", (req, res) => {
     console.log(templateVars)
     return res.render('landing', templateVars)
   }
-  console.log('========', id)
-    db.query(`SELECT *
-    FROM users WHERE id = ${id};`)
-      .then(result => {
-        const items = result.rows[0];
 
-        console.log(items)
+  return res.redirect('/lists')
 
-        const templateVars = {
-          user_id: items.id,
-          email: items.email,
-          username: items.username,
-          profile_pic: items.profile_pic
-        }
-
-        console.log(templateVars)
-        res.render('landing', templateVars)
-        return items;
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
   });
 
 app.listen(PORT, () => {

@@ -65,7 +65,7 @@ const userItems = (db) => {
     // api logic:
     // http://api.wolframalpha.com/v2/query?appid=DEMO&input=tides%20seattle&output=json
 
-    const keyWords = []
+    // const keyWords = []
 
     if (wolfRam(item).includes('')) {
 

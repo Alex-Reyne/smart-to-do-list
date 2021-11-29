@@ -18,6 +18,21 @@ const login = function(email, password, db) {
 };
 
 
+const addUser = function(user, db) {
+  let query = `
+  INSERT into users (username, email, password)
+  VALUES ($1, $2, $3)
+  RETURNING *
+  `;
+  const values = [user.username, user.email, bcrypt.hashSync(user.password, 10)];
+  return db.query(query, values)
+    .then(res => res.rows[0])
+    .catch(err => console.error('query error', err.stack));
+};
+
+
+
 module.exports = {
-  login
+  login,
+  addUser
 };

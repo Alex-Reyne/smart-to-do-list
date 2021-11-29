@@ -10,11 +10,14 @@
   <link rel="stylesheet" href="/styles/navbar.css">
   <link rel="stylesheet" href="/styles/main_lists.css">
 
-   <!-- Import google fonts  -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+  <!-- Import google fonts  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
 
+  <!-- javascript files -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/additem.js"></script>
   <title>Smart To-Do Lists</title>
 </head>
 <!-- NAV BAR  -->
@@ -23,15 +26,15 @@
 
   <main>
     <p>What do you want to do?</p>
-    <form action="" method="POST">
-      <textarea name="" id="" cols="30" rows="1" placeholder="Things to do..."></textarea>
-      <button>Add</button>
+    <form>
+      <textarea name="" id="text" cols="30" rows="1" placeholder="Things to do..."></textarea>
+      <button id="add">Add</button>
     </form>
     <!-- <div class="container"> -->
-      <div id="eat">Places to eat</div>
-      <div id="read">Things to Read</div>
-      <div id="watch">Stuff to watch</div>
-      <div id="buy">Junk to buy</div>
+      <div class="eat">Places to eat</div>
+      <div class="read">Things to Read</div>
+      <div class="watch">Stuff to watch</div>
+      <div class="buy">Junk to buy</div>
     <!-- </div> -->
   </main>
 </body>

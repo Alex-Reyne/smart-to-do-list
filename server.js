@@ -51,6 +51,7 @@ const signupRoutes = require("./routes/signup");
 
 const listRoutes = require("./routes/lists");
 const listitemsRoutes = require("./routes/listitems");
+// const userItems = require("./routes/listitems")
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -61,7 +62,7 @@ app.use("/signup", signupRoutes);
 
 app.use("/profile", profileRoutes(db));
 app.use("/lists", listRoutes);
-app.use("/items", listitemsRoutes);
+app.use("/items", listitemsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).

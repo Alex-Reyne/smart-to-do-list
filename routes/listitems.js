@@ -65,11 +65,11 @@ const userItems = (db) => {
     // api logic:
     // http://api.wolframalpha.com/v2/query?appid=DEMO&input=tides%20seattle&output=json
 
-    const keyWords = []
 
-    if (wolfRam(item).includes('')) {
+    wolfRam(item);
+    // if (wolfRam(item).includes('')) {
 
-    };
+    // };
     //
 
     db.query(`INSERT INTO items

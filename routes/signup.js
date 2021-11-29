@@ -5,28 +5,22 @@ const router  = express.Router();
 
 const signUpPage = (db) => {
   router.get("/", (req, res) => {
-    const id = req.session.user_id
-    db.query(`SELECT * FROM users`)
-    .then(data => {
-        const users = data.rows[0];
-        console.log(data.rows)
+    const id = req.session.user_id;
 
-        const templateVars = {
-          user_id: users.id,
-          email: users.email,
-          username: users.username,
-          profile_pic: users.profile_pic
-        }
+    if (id) {
+      return res.redirect('/lists');
+    }
 
-        console.log(templateVars)
-        res.render('signup', templateVars);
-        return users;
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+    const templateVars = {
+      user_id: null,
+      email: null,
+      username: null,
+      profile_pic: null
+    }
+
+    console.log(templateVars)
+    return res.render('signup', templateVars);
+
   });
 
 return router;

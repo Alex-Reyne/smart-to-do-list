@@ -9,7 +9,7 @@ const userItems = (db) => {
     FROM items
     JOIN lists ON lists.id = list_id
     JOIN users ON users.id = user_id
-    WHERE lists.name LIKE '%eat%'
+    WHERE lists.name LIKE '%buy%'
     AND username = 'Alice';`)
       .then(result => {
         const items = result.rows[0];

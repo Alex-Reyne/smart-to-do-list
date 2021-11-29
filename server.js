@@ -63,7 +63,7 @@ app.use("/signup", signupRoutes);
 app.use("/logout", logoutRoutes);
 
 app.use("/profile", profileRoutes(db));
-app.use("/lists", listRoutes);
+app.use("/lists", listRoutes(db));
 app.use("/items", listitemsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!

@@ -5,7 +5,7 @@ const router  = express.Router();
 
 const userItems = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT items.name
+    db.query(`SELECT items.name, users.*
     FROM items
     JOIN lists ON lists.id = list_id
     JOIN users ON users.id = user_id
@@ -13,8 +13,19 @@ const userItems = (db) => {
     AND users.id = 1;`)
       .then(result => {
         const items = result.rows[0];
+
         console.log(items)
-        res.render('items', items)
+
+        const templateVars = {
+          user_id: items.id,
+          email: items.email,
+          username: items.username,
+          profile_pic: items.profile_pic,
+          name: items.name
+        }
+
+        console.log(templateVars)
+        res.render('items', templateVars)
         return items;
       })
       .catch(err => {

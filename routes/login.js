@@ -8,8 +8,8 @@ const { login } = require('./helperFunctions.js');
 const loginPage = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id
-    db.query(`SELECT * FROM users WHERE id = ${id};`)
-      .then(data => {
+    db.query(`SELECT * FROM users`)
+    .then(data => {
         const users = data.rows[0];
         console.log(data.rows)
 

@@ -9,6 +9,7 @@ const userProfile = (db) => {
     db.query(`SELECT * FROM users WHERE id = ${id};`)
       .then(data => {
         const users = data.rows[0];
+        console.log(data.rows)
 
         const templateVars = {
           user_id: users.id,
@@ -18,9 +19,8 @@ const userProfile = (db) => {
         }
 
         console.log(templateVars)
-        res.render('profile.ejs', templateVars)
-        // console.log(users)
-        return users
+        res.render('profile.ejs', templateVars);
+        return users;
       })
       .catch(err => {
         res

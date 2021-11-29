@@ -9,7 +9,7 @@ const login = function(email, password, db) {
   return db.query(query, value)
     .then(res => res.rows[0])
     .then(res => {
-      if (bcrypt.compareSync(res.password, hashedPassword)) {
+      if (res !== undefined && bcrypt.compareSync(res.password, hashedPassword)) {
         return res;
       }
       return null;

@@ -10,8 +10,8 @@ const loginPage = (db) => {
     const id = req.session.user_id
     db.query(`SELECT * FROM users`)
     .then(data => {
-        const users = data.rows[0];
-        console.log(data.rows)
+      const users = data.rows[0];
+      console.log(data.rows)
 
         const templateVars = {
           user_id: users.id,

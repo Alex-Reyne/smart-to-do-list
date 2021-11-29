@@ -2,7 +2,7 @@
   <a href='/'>
   <span class='logo'>Smart List</span>
   </a>
-  <% if (!user_id) { %>
+  <% if (user_id) { %>
 
     <span class='nav-text' type='button'>
       <form action='/logout' method='POST'>

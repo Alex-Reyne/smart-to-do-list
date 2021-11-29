@@ -5,6 +5,7 @@ const router  = express.Router();
 
 const userItems = (db) => {
   router.get("/", (req, res) => {
+    const id = req.session.user_id
     db.query(`SELECT items.name, users.*
     FROM items
     JOIN lists ON lists.id = list_id

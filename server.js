@@ -70,8 +70,31 @@ app.use("/items", listitemsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("landing");
-});
+  const id = req.session.user_id
+    db.query(`SELECT *
+    FROM users`)
+      .then(result => {
+        const items = result.rows[0];
+
+        console.log(items)
+
+        const templateVars = {
+          user_id: items.id,
+          email: items.email,
+          username: items.username,
+          profile_pic: items.profile_pic
+        }
+
+        console.log(templateVars)
+        res.render('landing', templateVars)
+        return items;
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

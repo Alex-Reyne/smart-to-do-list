@@ -2,18 +2,18 @@
   <a href='/'>
   <span class='logo'>Smart List</span>
   </a>
-  <!-- <% //if (email) { %>
+  <% if (email) { %>
 
     <span class='nav-text' type='button'>
       <a href='/login' action='/logout' method='POST'>log out</a>
       <br>
       <a href='/profile' id='profile'>
-        <%= //email %>
+        <%= email %>
       </a>
     </span>
-    <img id='profile-pic' src="<%=// profile_pic %>">
+    <img id='profile-pic' src="<%= profile_pic %>">
 
-  <% //} else { %> -->
+  <% } else { %>
 
   <span class='nav-text' type='button'>
     <a href='/login'>login</a>
@@ -21,5 +21,5 @@
     <a href='/signup' id='signup'>sign up</a>
   </span>
 
-  <!-- <% //} %> -->
+  <% } %>
 </nav>

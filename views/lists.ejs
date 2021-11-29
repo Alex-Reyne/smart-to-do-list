@@ -25,9 +25,9 @@
 
   <main>
     <p>What do you want to do?</p>
-    <form>
-      <textarea name="" id="text" cols="30" rows="1" placeholder="Things to do..."></textarea>
-      <button id="add">Add</button>
+    <form method="POST" action="/items">
+      <textarea name="item" id="text" cols="30" rows="1" placeholder="Things to do..."></textarea>
+      <button type="submit" id="add">Add</button>
     </form>
     <!-- <div class="container"> -->
       <div class="eat">Places to eat</div>

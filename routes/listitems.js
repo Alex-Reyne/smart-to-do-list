@@ -41,6 +41,54 @@ const userItems = (db) => {
           .json({ error: err.message });
       });
   });
+  router.post("/", (req, res) => {
+
+    let listId = 0;
+    const item = req.body.item;
+    const id = req.session.user_id;
+    console.log('items', item);
+
+    if (item.includes('watch')) {
+      listId = 1;
+    }
+    else if (item.includes('eat')) {
+      listId = 2;
+    }
+    else if (item.includes('read')) {
+      listId = 3;
+    }
+    else if (item.includes('buy')) {
+      listId = 4;
+    }
+    console.log(listId)
+    db.query(`INSERT INTO items
+    (name, list_id, user_id) VALUES ('${item}', ${listId}, ${id})
+    RETURNING *;
+    `)
+    // console.log('req', item)
+    .then(result => {
+      res.redirect('/lists');
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  })
+
+  // app.post("/urls", (req, res) => {
+  //   const shortGen = generateRandomString();
+  //   const userid = req.session.id;
+
+  //   if (!userid) {
+  //     return res.sendStatus(403); // prevents people from creating new urls using cURL in terminal;
+  //   }
+
+  //   urlDatabase[shortGen] = { longURL: req.body.longURL, userID: req.session.id };
+  //   res.redirect(`/urls/${shortGen}`);
+  // });
+
+
   return router;
 };
 module.exports = userItems;

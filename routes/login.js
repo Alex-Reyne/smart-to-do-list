@@ -10,8 +10,17 @@ const loginPage = (db) => {
     const id = req.session.user_id;
     db.query(`SELECT * FROM users WHERE id = $1`, [id])
       .then(data => {
-        const user = data.rows[0]
-        res.render("login", user);
+        const users = data.rows[0]
+
+        const templateVars = {
+          user_id: users.id,
+          email: users.email,
+          username: users.username,
+          profile_pic: users.profile_pic
+        }
+
+        res.render("login", templateVars);
+        return users;
       })
   });
 

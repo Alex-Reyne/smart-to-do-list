@@ -48,18 +48,18 @@ const userItems = (db) => {
     const id = req.session.user_id;
     console.log('items', item);
 
-    if (item.includes('watch')) {
-      listId = 1;
-    }
-    else if (item.includes('eat')) {
-      listId = 2;
-    }
-    else if (item.includes('read')) {
-      listId = 3;
-    }
-    else if (item.includes('buy')) {
-      listId = 4;
-    } else
+    // if (item.includes('watch')) {
+    //   listId = 1;
+    // }
+    // else if (item.includes('eat')) {
+    //   listId = 2;
+    // }
+    // else if (item.includes('read')) {
+    //   listId = 3;
+    // }
+    // else if (item.includes('buy')) {
+    //   listId = 4;
+    // } else
 
     // if no stings match, look in the api data.#add
     // api logic:

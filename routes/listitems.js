@@ -67,10 +67,32 @@ const userItems = (db) => {
 
     // const keyWords = []
 
-    // wolfRam(item);
-    // booksApis(item);
-    // moviesApi(item);
+    // first
+    wolfRam(item);
+    // television program for watch cat
+
+    // second
     // foodApi(item);
+    // if array greater than 0
+
+    // third
+    // moviesApi(item);
+    // feature, video, TV series,
+
+    // if movie title exact match and type (q) is "feature, video, or TV series" then win.
+    // movies API {
+    //   d: [
+    //     {
+    //       id: 'tt0419685',
+    //       l: 'Dien, Chinh, Chung und Tung - Lebensversuche in Vietnam',
+    //       q: 'TV movie',
+    //       rank: 1186892,
+    //       y: 1990
+    //     },
+
+    // last only if book title is exact match
+    // booksApis(item);
+
     // if (wolfRam(item).includes('')) {
 
     // };

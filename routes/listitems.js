@@ -46,7 +46,7 @@ const userItems = (db) => {
 
   router.post("/", (req, res) => {
 
-    let listId = 0;
+    let listId = 4;
     const item = req.body.item.toLowerCase();
     const id = req.session.user_id;
     console.log('items', item);
@@ -61,9 +61,6 @@ const userItems = (db) => {
     }
     else if (item.includes('read')) {
       listId = 3;
-    }
-    else if (item.includes('buy')) {
-      listId = 4;
     } else {
       foodApi(item)
       .then((result) => {
@@ -84,46 +81,62 @@ const userItems = (db) => {
               .json({ error: err.message });
           });
         } else {
-          moviesApi(item).then((result) => {
-            console.log('item in movies: ', item)
+          booksApis(item).then(result => {
+            console.log('item in books: ', item)
+            console.log('result in books: ', result)
             if (result) {
-            db.query(`INSERT INTO items
-              (name, list_id, user_id) VALUES ('${item}', 1, ${id})
+              db.query(`INSERT INTO items
+              (name, list_id, user_id) VALUES ('${item}', 3, ${id})
               RETURNING *;
               `)
-              // console.log('req', item)
               .then(result => {
-                  res.redirect('/lists');
-                })
-                .catch(err => {
+                res.redirect("/lists")
+              })
+              .catch(err => {
+                res
+                  .status(500)
+                  .json({error: err.message});
+              })
+            } else {
+              moviesApi(item).then((result) => {
+                console.log('item in movies: ', item)
+                console.log('result in movies: ', result)
+                if (result) {
+                db.query(`INSERT INTO items
+                  (name, list_id, user_id) VALUES ('${item}', 1, ${id})
+                  RETURNING *;
+                  `)
+                  .then(result => {
+                      res.redirect('/lists');
+                    })
+                  .catch(err => {
                     res
                       .status(500)
                       .json({ error: err.message });
                   });
-            } else {
-
+                } else {
+                  db.query(`INSERT INTO items
+                  (name, list_id, user_id) VALUES ('${item}', 4, ${id})
+                    RETURNING *;
+                    `)
+                    // console.log('req', item)
+                    .then(result => {
+                      res.redirect('/lists');
+                    })
+                    .catch(err => {
+                      res
+                        .status(500)
+                        .json({ error: err.message });
+                    });
+                }
+              })
             }
           })
         }
       });
-
       return router;
     }
 
-
-            db.query(`INSERT INTO items
-            (name, list_id, user_id) VALUES ('${item}', ${listId}, ${id})
-    RETURNING *;
-    `)
-    // console.log('req', item)
-    .then(result => {
-      res.redirect('/lists');
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
   });
   return router;
 };

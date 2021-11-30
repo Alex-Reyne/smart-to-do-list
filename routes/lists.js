@@ -13,16 +13,16 @@ const userLists = (db) => {
       profile_pic: null
     }
 
-    console.log(templateVars)
+    // console.log(templateVars)
     return res.render('lists', templateVars)
   }
-  console.log('========', id)
+  // console.log('========', id)
     db.query(`SELECT *
     FROM users WHERE id = ${id};`)
       .then(result => {
         const items = result.rows[0];
 
-        console.log(items)
+        // console.log(items)
 
         const templateVars = {
           user_id: items.id,
@@ -31,7 +31,7 @@ const userLists = (db) => {
           profile_pic: items.profile_pic
         }
 
-        console.log(templateVars)
+        // console.log(templateVars)
         res.render('lists', templateVars)
         return items;
       })

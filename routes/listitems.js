@@ -43,12 +43,15 @@ const userItems = (db) => {
           .json({ error: err.message });
       });
   });
+
   router.post("/", (req, res) => {
 
     let listId = 0;
     const item = req.body.item.toLowerCase();
     const id = req.session.user_id;
     console.log('items', item);
+
+
 
     if (item.includes('watch')) {
       listId = 1;
@@ -61,54 +64,55 @@ const userItems = (db) => {
     }
     else if (item.includes('buy')) {
       listId = 4;
-    } else
+    } else {
+      foodApi(item)
+      .then((result) => {
+        console.log('item in food: ', item)
+        console.log('result in food: ', result)
+        if (result) {
+          db.query(`INSERT INTO items
+          (name, list_id, user_id) VALUES ('${item}', 2, ${id})
+          RETURNING *;
+          `)
+          // console.log('req', item)
+          .then(result => {
+            res.redirect('/lists');
+          })
+          .catch(err => {
+            res
+              .status(500)
+              .json({ error: err.message });
+          });
+        } else {
+          moviesApi(item).then((result) => {
+            console.log('item in movies: ', item)
+            if (result) {
+            db.query(`INSERT INTO items
+              (name, list_id, user_id) VALUES ('${item}', 1, ${id})
+              RETURNING *;
+              `)
+              // console.log('req', item)
+              .then(result => {
+                  res.redirect('/lists');
+                })
+                .catch(err => {
+                    res
+                      .status(500)
+                      .json({ error: err.message });
+                  });
+            } else {
 
-    // if no stings match, look in the api data.#add
-    // api logic:
-    // http://api.wolframalpha.com/v2/query?appid=DEMO&input=tides%20seattle&output=json
-
-    // const keyWords = []
-
-    // first
-    // wolfRam(item);
-    // television program for watch cat
-
-    // second
-   if (foodApi(item)
-        .then((res) => {
-          for (const name of res) {
-            if (name.toLowerCase().includes(item)) {
-              return true;
             }
-          }
-        })) { listId = 2 };
-    // if array greater than 0
+          })
+        }
+      });
 
-    // third
-    // moviesApi(item);
-    // feature, video, TV series,
+      return router;
+    }
 
-    // if movie title exact match and type (q) is "feature, video, or TV series" then win.
-    // movies API {
-    //   d: [
-    //     {
-    //       id: 'tt0419685',
-    //       l: 'Dien, Chinh, Chung und Tung - Lebensversuche in Vietnam',
-    //       q: 'TV movie',
-    //       rank: 1186892,
-    //       y: 1990
-    //     },
 
-    // last only if book title is exact match
-    // booksApis(item);
-
-    // if (wolfRam(item).includes('')) {
-
-    // };
-    //
-
-    db.query(`INSERT INTO items
-    (name, list_id, user_id) VALUES ('${item}', ${listId}, ${id})
+            db.query(`INSERT INTO items
+            (name, list_id, user_id) VALUES ('${item}', ${listId}, ${id})
     RETURNING *;
     `)
     // console.log('req', item)
@@ -120,8 +124,7 @@ const userItems = (db) => {
         .status(500)
         .json({ error: err.message });
     });
-  })
-
+  });
   return router;
 };
 module.exports = userItems;

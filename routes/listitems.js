@@ -2,6 +2,8 @@ const { application } = require('express');
 const express = require('express');
 const router  = express.Router();
 const { wolfRam, booksApis, moviesApi, foodApi} = require('../lib/apis.js')
+
+
 const userItems = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id
@@ -44,7 +46,7 @@ const userItems = (db) => {
   router.post("/", (req, res) => {
 
     let listId = 0;
-    const item = req.body.item;
+    const item = req.body.item.toLowerCase();
     const id = req.session.user_id;
     console.log('items', item);
 
@@ -68,11 +70,18 @@ const userItems = (db) => {
     // const keyWords = []
 
     // first
-    wolfRam(item);
+    // wolfRam(item);
     // television program for watch cat
 
     // second
-    // foodApi(item);
+   if (foodApi(item)
+        .then((res) => {
+          for (const name of res) {
+            if (name.toLowerCase().includes(item)) {
+              return true;
+            }
+          }
+        })) { listId = 2 };
     // if array greater than 0
 
     // third

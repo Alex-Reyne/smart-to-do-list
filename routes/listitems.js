@@ -1,7 +1,7 @@
 const { application } = require('express');
 const express = require('express');
 const router  = express.Router();
-const { wolfRam } = require('../lib/apis.js')
+const { wolfRam, booksApis, moviesApi, foodApi} = require('../lib/apis.js')
 const userItems = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id
@@ -67,7 +67,10 @@ const userItems = (db) => {
 
     // const keyWords = []
 
-    wolfRam(item);
+    // wolfRam(item);
+    // booksApis(item);
+    // moviesApi(item);
+    // foodApi(item);
     // if (wolfRam(item).includes('')) {
 
     // };

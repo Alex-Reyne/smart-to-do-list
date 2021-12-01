@@ -19,19 +19,20 @@ $(document).ready(function() {
 
 
   $('#eat').on('click', function() {
-    $('#eatList').show();
-
+    $('#eatList').slideToggle('slow');
   })
+
   $('#read').on('click', function() {
-    $('#readList').show();
+    $('#readList').slideToggle('slow');
 
   })
+
   $('#watch').on('click', function() {
-    $('#watchList').show();
-
+    $('#watchList').slideToggle('slow');
   })
+
   $('#buy').on('click', function() {
-    $('#buyList').show();
+    $('#buyList').slideToggle('slow');
 
   })
 });

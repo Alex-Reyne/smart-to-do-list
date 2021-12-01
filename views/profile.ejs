@@ -35,12 +35,12 @@
     <span class='name'>
       <h1><%= username.toUpperCase(); %></h1>
     </span>
-      <input name="username" id="edit-username"></input>
+      <input name="username" id="edit-username" value='<%= username %>'></input>
       <span class='email'>
         <h1><%= email.toUpperCase(); %></h1>
       </span>
-        <input name="email" id="edit-email" type='email'></input>
-        <input name="password" id="edit-password" type='password'></input>
+        <input name="email" id="edit-email" type='email' value='<%= email %>'></input>
+        <input name="password" id="edit-password" type='password' value='<%= password %>'></input>
         <button id='update-profile' type="submit">UPDATE PROFILE</button>
     </form>
     <button id='edit-profile'>EDIT PROFILE</button>

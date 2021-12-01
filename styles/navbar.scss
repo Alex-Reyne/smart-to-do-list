@@ -25,6 +25,11 @@ nav {
     font-family: $button-font;
   }
 
+  .logged-in-text {
+    margin: 0;
+    padding: 0;
+  }
+
   .nav-text {
     display: flex;
     flex-direction: row;
@@ -39,7 +44,7 @@ nav {
   img {
     width: auto;
     height: 100%;
-    margin-left: -5rem;
+    margin-left: 0rem;
   }
 
   #profile-pic {
@@ -48,12 +53,16 @@ nav {
     overflow: hidden;
     border-radius: 50%;
     margin-bottom: 2rem;
-    margin-left: -17rem;
+    margin-left: 1rem;
     margin-bottom: 0;
   }
 
   #profile {
     margin-left: 1rem;
+  }
+
+  #logout-button {
+    color: red;
   }
 }
 

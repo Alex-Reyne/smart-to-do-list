@@ -1,27 +1,40 @@
-<nav class='nav-bar'>
-  <a href='/'>
-  <span class='logo'>Smart List</span>
-  </a>
-  <% if (user_id) { %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>navbar</title>
+</head>
+<body>
+  <nav class='nav-bar'>
+    <a href='/'>
+    <span class='logo'>Smart List</span>
+    </a>
+    <% if (user_id) { %>
+      <div class='logged-in-text'>
+        <span class='nav-text' type='button'>
+          <form id='logout-form' action='/logout' method='POST'>
+            <a id='logout-button' href="javascript:$('#logout-form').submit();" type='submit'>log out</a>
+          </form>
+          <br>
+          <a href='/profile' id='profile'>
+            <%= email %>
+          </a>
+        </span>
+        <a href='/profile'><img id='profile-pic' src="<%= profile_pic %>"></a>
+      </div>
+
+    <% } else { %>
 
     <span class='nav-text' type='button'>
-      <form action='/logout' method='POST'>
-        <button type='submit'>log out</button>
-      </form>
+      <a href='/login'>login</a>
       <br>
-      <a href='/profile' id='profile'>
-        <%= email %>
-      </a>
+      <a href='/signup' id='signup'>sign up</a>
     </span>
-    <a href='/profile'><img id='profile-pic' src="<%= profile_pic %>"></a>
 
-  <% } else { %>
+    <% } %>
+  </nav>
+</body>
+</html>
 
-  <span class='nav-text' type='button'>
-    <a href='/login'>login</a>
-    <br>
-    <a href='/signup' id='signup'>sign up</a>
-  </span>
-
-  <% } %>
-</nav>

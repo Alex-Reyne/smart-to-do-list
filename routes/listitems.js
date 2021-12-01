@@ -39,9 +39,14 @@ const userItems = (db) => {
 
         const itemAndId = {};
         for (let no of items) {
-          itemAndId[no.item_id] = no.name;
+
+          if (!itemAndId[no.list_id]) {
+            itemAndId[no.list_id] = {};
+          }
+
+          itemAndId[no.list_id][no.item_id] = no.name;
         }
-        // console.log('itemAndId; ', itemAndId);
+        console.log('itemAndId; ', itemAndId);
 
 
         // console.log('items in listitems: ', items)

@@ -34,26 +34,98 @@
     <!-- <div class="container"> -->
       <div class='list-title' id="watch">Stuff to watch</div>
       <div class='item-list' id='watchList'>
+<<<<<<< HEAD
+        <% for (let item in itemAndId) {%>
+          <% if (item === "1") { %>
+            <% Object.keys(itemAndId[item]).forEach((key) => { %>
+        <div class='item-row' id='<%= key %>'>
+=======
         <% for (let task of tasks) {%>
           <% if (task.charAt(task.length -1) === "1") { %>
             <% for (let item in itemAndId) {%>
             <!-- <% // task = task.slice(0, -1) %> -->
         <div class='item-row' id='<%= item %>'>
+>>>>>>> 5d6ee32bcde40ed212f38442dfdeda7f541b3c07
           <!-- <i class="far fa-square"></i>
           <i class="far fa-check-square"></i> -->
           <i class="fas fa-circle"></i>
+<<<<<<< HEAD
           <h3><%= itemAndId[item] %></h3>
           <div class='move-item' id='<%= item %>'><%- include('partials/_move-item') %></div>
           <i class="far fa-minus-square remove-item"></i>
         </div>
             <% } %>
           <% } %>
+=======
+          <h3><%= itemAndId[item][key] %></h3>
+          <i class="far fa-minus-square remove-item"></i>
+        </div>
+        <!-- <% //} %> -->
+        <% }) %>
+        <% } %>
+        <% } %>
+        <% } %>
+>>>>>>> cb00299e36d187645ed608b1d0b3c5463a3adfe9
         <% } %>
       </div>
 
 
       <div class='list-title' id="eat">Places to eat</div>
       <div class='item-list' id='eatList'>
+<<<<<<< HEAD
+        <% for (let item in itemAndId) {%>
+          <% if (item === "2") { %>
+            <% Object.keys(itemAndId[item]).forEach((key) => { %>
+        <div class='item-row' id='<%= key %>'>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
+          <h3><%= itemAndId[item][key] %></h3>
+          <i class="far fa-minus-square remove-item"></i>
+        </div>
+        <!-- <% //} %> -->
+        <% }) %>
+        <% } %>
+        <% } %>
+        <!-- <% //} %> -->
+      </div>
+      <div class='list-title' id="read">Things to read</div>
+      <div class='item-list' id='readList'>
+        <% for (let item in itemAndId) {%>
+          <% if (item === "3") { %>
+            <% Object.keys(itemAndId[item]).forEach((key) => { %>
+        <div class='item-row' id='<%= key %>'>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
+          <h3><%= itemAndId[item][key] %></h3>
+          <i class="far fa-minus-square remove-item"></i>
+        </div>
+        <!-- <% //} %> -->
+        <% }) %>
+        <% } %>
+        <% } %>
+        <!-- <% //} %> -->
+      </div>
+      <div class='list-title' id="buy">Junk to buy</div>
+      <div class='item-list' id='buyList'>
+        <% for (let item in itemAndId) {%>
+          <% if (item === "4") { %>
+            <% Object.keys(itemAndId[item]).forEach((key) => { %>
+        <div class='item-row' id='<%= key %>'>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
+          <h3><%= itemAndId[item][key] %></h3>
+          <i class="far fa-minus-square remove-item"></i>
+        </div>
+        <!-- <% //} %> -->
+        <% }) %>
+        <% } %>
+        <% } %>
+        <!-- <% //} %> -->
+      </div>
+=======
         <% for (let task of tasks) {%>
           <% if (task.charAt(task.length -1) === "2") { %>
             <% for (let item in itemAndId) {%>
@@ -103,6 +175,7 @@
             <% } %>
           <% } %>
         </div>
+>>>>>>> 5d6ee32bcde40ed212f38442dfdeda7f541b3c07
     <!-- </div> -->
   </main>
 </body>

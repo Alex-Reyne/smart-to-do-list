@@ -17,6 +17,7 @@
 
   <!-- javascript files -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
   <title>Smart To-Do Lists</title>
 </head>
 <!-- NAV BAR  -->
@@ -30,10 +31,30 @@
       <button type="submit" id="add">Add</button>
     </form>
     <!-- <div class="container"> -->
-      <div class="eat">Places to eat</div>
-      <div class="read">Things to Read</div>
-      <div class="watch">Stuff to watch</div>
-      <div class="buy">Junk to buy</div>
+      <div id="watch">Stuff to watch</div>
+      <table id="watchList">
+        <tr>
+          <td> <%= tasks %> </td>
+        </tr>
+      </table>
+      <div id="eat">Places to eat</div>
+      <table id="eatList">
+        <tr>
+          <td>item 2</td>
+        </tr>
+      </table>
+      <div id="read">Things to read</div>
+      <table id="readList">
+        <tr>
+          <td>item 3</td>
+        </tr>
+      </table>
+      <div id="buy">Junk to buy</div>
+      <table id="buyList">
+        <tr>
+          <td>item 4</td>
+        </tr>
+      </table>
     <!-- </div> -->
   </main>
 </body>

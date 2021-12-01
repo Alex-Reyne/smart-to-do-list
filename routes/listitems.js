@@ -33,7 +33,15 @@ const userItems = (db) => {
         for (const listID of items) {
           IdList.push(listID.list_id)
         }
-        // console.log(IdList)
+        console.log('items:', items)
+
+        const itemAndId = {};
+        for (let no of items) {
+          itemAndId[no.item_id] = no.name;
+        }
+        // console.log('itemAndId; ', itemAndId);
+
+
         // console.log('items in listitems: ', items)
         const joinArr = listItems.map((element, index) => element + IdList[index]);
         console.log(joinArr)
@@ -43,12 +51,8 @@ const userItems = (db) => {
           username: items[0].username,
           profile_pic: items[0].profile_pic,
           tasks: joinArr,
-          get itemId() {
-            for (const obj of items) {
-              return obj.item_id;
-            }
-            console.log(item_id)
-          }
+          itemAndId
+
         }
 
         console.log(templateVars)

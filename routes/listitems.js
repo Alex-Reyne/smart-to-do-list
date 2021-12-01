@@ -18,7 +18,7 @@ const userItems = (db) => {
     console.log(templateVars)
     return res.render('items', templateVars)
   }
-    db.query(`SELECT items.*, users.*
+    db.query(`SELECT items.*, items.id as item_id, users.*
     FROM items
     JOIN users ON users.id = user_id
     WHERE users.id = ${id};`)
@@ -29,12 +29,12 @@ const userItems = (db) => {
         for (const i of items) {
           listItems.push(i.name)
         }
-        console.log(listItems)
+        // console.log(listItems)
         for (const listID of items) {
           IdList.push(listID.list_id)
         }
-        console.log(IdList)
-        //console.log(items)
+        // console.log(IdList)
+        // console.log('items in listitems: ', items)
         const joinArr = listItems.map((element, index) => element + IdList[index]);
         console.log(joinArr)
         const templateVars = {
@@ -43,6 +43,12 @@ const userItems = (db) => {
           username: items[0].username,
           profile_pic: items[0].profile_pic,
           tasks: joinArr,
+          get itemId() {
+            for (const obj of items) {
+              return obj.item_id;
+            }
+            console.log(item_id)
+          }
         }
 
         console.log(templateVars)

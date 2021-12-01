@@ -10,8 +10,6 @@
 //
 
 $(document).ready(function() {
-
-
   $('#eatList').hide();
   $('#readList').hide();
   $('#watchList').hide();
@@ -35,4 +33,16 @@ $(document).ready(function() {
     $('#buyList').slideToggle('slow');
 
   })
+
+  $(".fa-minus-square").click(function(){
+    let rowId = $(this).attr('item-row');
+    let tr =  $(this).parent();
+    console.log(rowId, tr)
+
+    $.post('/delete.js', {row_id:  rowId}, function(result){
+      //Do something with the message your page returns after deleting
+      tr.remove()
+    });
+});
+
 });

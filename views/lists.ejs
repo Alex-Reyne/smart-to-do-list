@@ -38,7 +38,7 @@
         <% for (let task of tasks) {%>
           <% if (task.charAt(task.length -1) === "1") { %>
             <% task = task.slice(0, -1) %>
-        <div class='item-row'>
+        <div class='item-row' id='<%= itemId %>'>
           <!-- <i class="far fa-square"></i>
           <i class="far fa-check-square"></i> -->
           <i class="fas fa-circle"></i>
@@ -55,7 +55,7 @@
         <% for (let task of tasks) {%>
           <% if (task.charAt(task.length -1) === "2") { %>
             <% task = task.slice(0, -1) %>
-        <div class='item-row'>
+        <div class='item-row' id='<%= itemId %>'>
           <!-- <i class="far fa-square"></i>
           <i class="far fa-check-square"></i> -->
           <i class="fas fa-circle"></i>

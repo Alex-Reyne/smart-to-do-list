@@ -17,18 +17,21 @@ const userLists = (db) => {
     return res.render('lists', templateVars)
   }
   // console.log('========', id)
-    db.query(`SELECT *
-    FROM users WHERE id = ${id};`)
+    db.query(`SELECT users.*, items.id as item_id
+    FROM users
+    JOIN items ON users.id = user_id
+    WHERE users.id = ${id};`)
       .then(result => {
         const items = result.rows[0];
 
-        // console.log(items)
+        console.log('items in list.js: ', items)
 
         const templateVars = {
           user_id: items.id,
           email: items.email,
           username: items.username,
-          profile_pic: items.profile_pic
+          profile_pic: items.profile_pic,
+          item_id: items.item_id
         }
 
         // console.log(templateVars)

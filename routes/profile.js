@@ -20,6 +20,7 @@ const userProfile = (db) => {
           user_id: users.id,
           email: users.email,
           username: users.username,
+          password: users.password,
           profile_pic: users.profile_pic
         }
 

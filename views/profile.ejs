@@ -35,12 +35,12 @@
     <span class='name'>
       <h1><%= username.toUpperCase(); %></h1>
     </span>
-      <textarea name="username" id="edit-username"><%= username %></textarea>
+      <input name="username" id="edit-username"></input>
       <span class='email'>
         <h1><%= email.toUpperCase(); %></h1>
       </span>
-        <textarea name="email" id="edit-email"><%= email %></textarea>
-        <textarea name="password" id="edit-password"></textarea>
+        <input name="email" id="edit-email" type='email'></input>
+        <input name="password" id="edit-password" type='password'></input>
         <button id='update-profile' type="submit">UPDATE PROFILE</button>
     </form>
     <button id='edit-profile'>EDIT PROFILE</button>

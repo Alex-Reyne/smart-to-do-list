@@ -49,6 +49,7 @@ const profileRoutes = require("./routes/profile");
 const loginRoutes = require("./routes/login");
 const signupRoutes = require("./routes/signup");
 const logoutRoutes = require("./routes/logout");
+const deleteRoutes = require("./routes/delete");
 
 const listRoutes = require("./routes/lists");
 const listitemsRoutes = require("./routes/listitems");
@@ -65,6 +66,7 @@ app.use("/logout", logoutRoutes);
 app.use("/profile", profileRoutes(db));
 app.use("/lists", listitemsRoutes(db));
 app.use("/items", listitemsRoutes(db));
+app.use("/delete", deleteRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).

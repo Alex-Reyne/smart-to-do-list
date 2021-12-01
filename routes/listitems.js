@@ -15,13 +15,14 @@ const userItems = (db) => {
       username: null,
       profile_pic: null
     }
-    console.log(templateVars)
+    // console.log(templateVars)
     return res.render('items', templateVars)
   }
     db.query(`SELECT items.*, items.id as item_id, users.*
     FROM items
     JOIN users ON users.id = user_id
-    WHERE users.id = ${id};`)
+    WHERE users.id = ${id}
+    AND items.delete_date_time IS null;`)
       .then(result => {
         const items = result.rows;
         const listItems = [];
@@ -36,22 +37,16 @@ const userItems = (db) => {
         // console.log(IdList)
         // console.log('items in listitems: ', items)
         const joinArr = listItems.map((element, index) => element + IdList[index]);
-        console.log(joinArr)
+        // console.log(joinArr)
         const templateVars = {
           user_id: items[0].id,
           email: items[0].email,
           username: items[0].username,
           profile_pic: items[0].profile_pic,
-          tasks: joinArr,
-          get itemId() {
-            for (const obj of items) {
-              return obj.item_id;
-            }
-            console.log(item_id)
-          }
+          tasks: joinArr
         }
 
-        console.log(templateVars)
+        // console.log(templateVars)
         res.render('lists', templateVars)
         return items;
       })
@@ -67,7 +62,7 @@ const userItems = (db) => {
     let listId = 4;
     const item = req.body.item.toLowerCase();
     const id = req.session.user_id;
-    console.log('items', item);
+    // console.log('items', item);
 
 
 

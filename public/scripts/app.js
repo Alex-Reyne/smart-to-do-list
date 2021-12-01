@@ -34,15 +34,24 @@ $(document).ready(function() {
 
   })
 
-  $(".fa-minus-square").click(function(){
-    let rowId = $(this).attr('item-row');
-    let tr =  $(this).parent();
-    console.log(rowId, tr)
+  $(".task").on('click', function(){
+    // const classId = $(this).parent().attr();
+    // console.log(document.getElementById(`#${classId}`))
+    // console.log($(this).innerHTML) ;
+    // console.log(document.getElementsByClassName('.task').innerHTML) ;
+    let rowId = $(this).attr('row-id'); //Pull the attribute from your button
+    let row =  $(this).parent(); //Define the TR itself
 
-    $.post('/delete.js', {row_id:  rowId}, function(result){
-      //Do something with the message your page returns after deleting
-      tr.remove()
-    });
+    $.ajax({
+      method: 'POST',
+      url: '/delete',
+      data: rowId
+    })
+      // when request is successful we clear the text box
+      // and call loadTweets() to make the new tweet show up.
+      .then(function() {
+        row.remove();
+      });
 });
 
 });

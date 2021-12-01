@@ -31,19 +31,14 @@
     </div>
 
     <div class='item-list'>
+      <% for (let task of tasks) {%>
       <div class='item-row'>
         <i class="far fa-square"></i>
         <i class="far fa-check-square"></i>
-        <!-- <h3><%= //name %></h3> -->
+        <h3><%= task %></h3>
         <i class="far fa-minus-square"></i>
       </div>
-
-      <div class='item-row'>
-        <i class="far fa-square"></i>
-        <i class="far fa-check-square"></i>
-        <h3>item 2</h3>
-        <i id='delete-item' class="far fa-minus-square" type='submit' method='post'></i>
-      </div>
+      <% } %>
 
     </div>
 

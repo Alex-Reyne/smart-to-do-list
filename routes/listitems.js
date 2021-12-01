@@ -19,21 +19,29 @@ const userItems = (db) => {
     console.log(templateVars)
     return res.render('items', templateVars)
   }
-    db.query(`SELECT *
-    FROM users WHERE id = ${id};`)
+    db.query(`SELECT users.id as id, email, username, profile_pic, items.name as task
+    FROM users
+    JOIN items ON users.id = user_id
+    WHERE users.id = ${id};`)
       .then(result => {
-        const items = result.rows[0];
-
-        console.log(items)
-
-        const templateVars = {
-          user_id: items.id,
-          email: items.email,
-          username: items.username,
-          profile_pic: items.profile_pic
+        const items = result.rows;
+        const tasks = [];
+        for (let item of items) {
+          tasks.push(item.task);
         }
 
-        console.log(templateVars)
+        // console.log('items:', items)
+        // console.log('tasks:', tasks)
+
+          const templateVars = {
+          user_id: items[0].id,
+          email: items[0].email,
+          username: items[0].username,
+          profile_pic: items[0].profile_pic,
+          tasks
+        }
+
+        // console.log(templateVars)
         res.render('items', templateVars)
         return items;
       })

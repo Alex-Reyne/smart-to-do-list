@@ -25,6 +25,7 @@ const userItems = (db) => {
     AND items.delete_date_time IS null;`)
       .then(result => {
         const items = result.rows;
+        console.log(result.rows)
         const listItems = [];
         const IdList = [];
         for (const i of items) {

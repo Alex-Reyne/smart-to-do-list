@@ -35,18 +35,10 @@
     <!-- <div class="container"> -->
       <div class='list-title' id="watch">Stuff to watch</div>
       <div class='item-list' id='watchList'>
-<<<<<<< HEAD
         <% for (let item in itemAndId) {%>
           <% if (item === "1") { %>
             <% Object.keys(itemAndId[item]).forEach((key) => { %>
         <div class='item-row' id='<%= key %>'>
-=======
-        <% for (let task of tasks) {%>
-        <% if (task.charAt(task.length -1) === "1") { %>
-          <% for (let item in itemAndId) {%>
-            <!-- <% // task = task.slice(0, -1) %> -->
-        <div class='item-row' id='<%= item %>'>
->>>>>>> 5d6ee32bcde40ed212f38442dfdeda7f541b3c07
           <!-- <i class="far fa-square"></i>
           <i class="far fa-check-square"></i> -->
           <i class="fas fa-circle"></i>
@@ -57,14 +49,11 @@
         <% }) %>
         <% } %>
         <% } %>
-        <% } %>
-        <% } %>
       </div>
 
 
       <div class='list-title' id="eat">Places to eat</div>
       <div class='item-list' id='eatList'>
-<<<<<<< HEAD
         <% for (let item in itemAndId) {%>
           <% if (item === "2") { %>
             <% Object.keys(itemAndId[item]).forEach((key) => { %>
@@ -81,6 +70,7 @@
         <% } %>
         <!-- <% //} %> -->
       </div>
+
       <div class='list-title' id="read">Things to read</div>
       <div class='item-list' id='readList'>
         <% for (let item in itemAndId) {%>
@@ -99,6 +89,8 @@
         <% } %>
         <!-- <% //} %> -->
       </div>
+
+
       <div class='list-title' id="buy">Junk to buy</div>
       <div class='item-list' id='buyList'>
         <% for (let item in itemAndId) {%>
@@ -117,57 +109,6 @@
         <% } %>
         <!-- <% //} %> -->
       </div>
-=======
-        <% for (let task of tasks) {%>
-          <% if (task.charAt(task.length -1) === "2") { %>
-            <% for (let item in itemAndId) {%>
-              <!-- <% // task = task.slice(0, -1) %> -->
-          <div class='item-row' id='<%= item %>'>
-            <!-- <i class="far fa-square"></i>
-            <i class="far fa-check-square"></i> -->
-            <i class="fas fa-circle"></i>
-            <h3><%= itemAndId[item] %></h3>
-            <i class="far fa-minus-square remove-item"></i>
-          </div>
-          <% } %>
-          <% } %>
-          <% } %>
-        </div>
-      <div class='list-title' id="read">Things to read</div>
-      <div class='item-list' id='readList'>
-        <% for (let task of tasks) {%>
-          <% if (task.charAt(task.length -1) === "3") { %>
-            <% for (let item in itemAndId) {%>
-              <!-- <% // task = task.slice(0, -1) %> -->
-          <div class='item-row' id='<%= item %>'>
-            <!-- <i class="far fa-square"></i>
-            <i class="far fa-check-square"></i> -->
-            <i class="fas fa-circle"></i>
-            <h3><%= itemAndId[item] %></h3>
-            <i class="far fa-minus-square remove-item"></i>
-          </div>
-          <% } %>
-          <% } %>
-          <% } %>
-        </div>
-      <div class='list-title' id="buy">Junk to buy</div>
-      <div class='item-list' id='buyList'>
-        <% for (let task of tasks) {%>
-          <% if (task.charAt(task.length -1) === "4") { %>
-            <% for (let item in itemAndId) {%>
-              <!-- <% // task = task.slice(0, -1) %> -->
-          <div class='item-row' id='<%= item %>'>
-            <!-- <i class="far fa-square"></i>
-            <i class="far fa-check-square"></i> -->
-            <i class="fas fa-circle"></i>
-            <h3><%= itemAndId[item] %></h3>
-            <i class="far fa-minus-square remove-item"></i>
-          </div>
-          <% } %>
-          <% } %>
-          <% } %>
-        </div>
->>>>>>> 5d6ee32bcde40ed212f38442dfdeda7f541b3c07
     <!-- </div> -->
   </main>
 </body>

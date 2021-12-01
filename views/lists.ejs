@@ -32,29 +32,53 @@
     </form>
     <!-- <div class="container"> -->
       <div id="watch">Stuff to watch</div>
-      <table id="watchList">
-        <tr>
-          <td> <%= tasks %> </td>
-        </tr>
-      </table>
+      <div class='item-list'>
+        <% for (let task of tasks) {%>
+        <div class='item-row'>
+          <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i>
+          <h3><%= task %></h3>
+          <i class="far fa-minus-square"></i>
+        </div>
+        <% } %>
+
+      </div>
       <div id="eat">Places to eat</div>
-      <table id="eatList">
-        <tr>
-          <td>item 2</td>
-        </tr>
-      </table>
+      <div class='item-list'>
+        <% for (let task of tasks) {%>
+        <div class='item-row'>
+          <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i>
+          <h3><%= task %></h3>
+          <i class="far fa-minus-square"></i>
+        </div>
+        <% } %>
+
+      </div>
       <div id="read">Things to read</div>
-      <table id="readList">
-        <tr>
-          <td>item 3</td>
-        </tr>
-      </table>
+      <div class='item-list'>
+        <% for (let task of tasks) {%>
+        <div class='item-row'>
+          <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i>
+          <h3><%= task %></h3>
+          <i class="far fa-minus-square"></i>
+        </div>
+        <% } %>
+
+      </div>
       <div id="buy">Junk to buy</div>
-      <table id="buyList">
-        <tr>
-          <td>item 4</td>
-        </tr>
-      </table>
+      <div class='item-list'>
+        <% for (let task of tasks) {%>
+        <div class='item-row'>
+          <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i>
+          <h3><%= task %></h3>
+          <i class="far fa-minus-square"></i>
+        </div>
+        <% } %>
+
+      </div>
     <!-- </div> -->
   </main>
 </body>

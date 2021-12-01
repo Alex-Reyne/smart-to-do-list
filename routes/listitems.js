@@ -38,10 +38,10 @@ const userItems = (db) => {
         const joinArr = listItems.map((element, index) => element + IdList[index]);
         console.log(joinArr)
         const templateVars = {
-          user_id: items.id,
-          email: items.email,
-          username: items.username,
-          profile_pic: items.profile_pic,
+          user_id: items[0].id,
+          email: items[0].email,
+          username: items[0].username,
+          profile_pic: items[0].profile_pic,
           tasks: joinArr,
         }
 

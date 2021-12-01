@@ -10,18 +10,19 @@
   <link rel="stylesheet" href="/styles/main_lists.css">
   <link rel="stylesheet" href="/styles/navbar.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="public/styles/move-item.css">
+
   <!-- Import google fonts  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+
   <!-- javascript files -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/items.js"></script>
   <title>Smart To-Do Lists</title>
 </head>
-<!-- NAV BAR and pop up menu -->
+<!-- NAV BAR  -->
 <%- include('partials/_navbar') %>
 <body>
 
@@ -34,11 +35,10 @@
     <!-- <div class="container"> -->
       <div class='list-title' id="watch">Stuff to watch</div>
       <div class='item-list' id='watchList'>
-        <% for (let task of tasks) {%>
-          <% if (task.charAt(task.length -1) === "1") { %>
-            <% for (let item in itemAndId) {%>
-            <!-- <% // task = task.slice(0, -1) %> -->
-        <div class='item-row' id='<%= item %>'>
+        <% for (let item in itemAndId) {%>
+          <% if (item === "1") { %>
+            <% Object.keys(itemAndId[item]).forEach((key) => { %>
+        <div class='item-row' id='<%= key %>'>
           <!-- <i class="far fa-square"></i>
           <i class="far fa-check-square"></i> -->
           <i class="fas fa-circle"></i>
@@ -49,62 +49,66 @@
         <% }) %>
         <% } %>
         <% } %>
-        <% } %>
-        <% } %>
       </div>
 
 
       <div class='list-title' id="eat">Places to eat</div>
       <div class='item-list' id='eatList'>
-        <% for (let task of tasks) {%>
-          <% if (task.charAt(task.length -1) === "2") { %>
-            <% for (let item in itemAndId) {%>
-              <!-- <% // task = task.slice(0, -1) %> -->
-          <div class='item-row' id='<%= item %>'>
-            <!-- <i class="far fa-square"></i>
-            <i class="far fa-check-square"></i> -->
-            <i class="fas fa-circle"></i>
-            <h3><%= itemAndId[item] %></h3>
-            <i class="far fa-minus-square remove-item"></i>
-          </div>
-              <% } %>
-            <% } %>
-          <% } %>
+        <% for (let item in itemAndId) {%>
+          <% if (item === "2") { %>
+            <% Object.keys(itemAndId[item]).forEach((key) => { %>
+        <div class='item-row' id='<%= key %>'>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
+          <h3><%= itemAndId[item][key] %></h3>
+          <i class="far fa-minus-square remove-item"></i>
         </div>
+        <!-- <% //} %> -->
+        <% }) %>
+        <% } %>
+        <% } %>
+        <!-- <% //} %> -->
+      </div>
+
       <div class='list-title' id="read">Things to read</div>
       <div class='item-list' id='readList'>
-        <% for (let task of tasks) {%>
-          <% if (task.charAt(task.length -1) === "3") { %>
-            <% for (let item in itemAndId) {%>
-              <!-- <% // task = task.slice(0, -1) %> -->
-          <div class='item-row' id='<%= item %>'>
-            <!-- <i class="far fa-square"></i>
-            <i class="far fa-check-square"></i> -->
-            <i class="fas fa-circle"></i>
-            <h3><%= itemAndId[item] %></h3>
-            <i class="far fa-minus-square remove-item"></i>
-          </div>
-              <% } %>
-            <% } %>
-          <% } %>
+        <% for (let item in itemAndId) {%>
+          <% if (item === "3") { %>
+            <% Object.keys(itemAndId[item]).forEach((key) => { %>
+        <div class='item-row' id='<%= key %>'>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
+          <h3><%= itemAndId[item][key] %></h3>
+          <i class="far fa-minus-square remove-item"></i>
         </div>
+        <!-- <% //} %> -->
+        <% }) %>
+        <% } %>
+        <% } %>
+        <!-- <% //} %> -->
+      </div>
+
+
       <div class='list-title' id="buy">Junk to buy</div>
       <div class='item-list' id='buyList'>
-        <% for (let task of tasks) {%>
-          <% if (task.charAt(task.length -1) === "4") { %>
-            <% for (let item in itemAndId) {%>
-              <!-- <% // task = task.slice(0, -1) %> -->
-          <div class='item-row' id='<%= item %>'>
-            <!-- <i class="far fa-square"></i>
-            <i class="far fa-check-square"></i> -->
-            <i class="fas fa-circle"></i>
-            <h3><%= itemAndId[item] %></h3>
-            <i class="far fa-minus-square remove-item"></i>
-          </div>
-              <% } %>
-            <% } %>
-          <% } %>
+        <% for (let item in itemAndId) {%>
+          <% if (item === "4") { %>
+            <% Object.keys(itemAndId[item]).forEach((key) => { %>
+        <div class='item-row' id='<%= key %>'>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
+          <h3><%= itemAndId[item][key] %></h3>
+          <i class="far fa-minus-square remove-item"></i>
         </div>
+        <!-- <% //} %> -->
+        <% }) %>
+        <% } %>
+        <% } %>
+        <!-- <% //} %> -->
+      </div>
     <!-- </div> -->
   </main>
 </body>

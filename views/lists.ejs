@@ -34,7 +34,7 @@
     </form>
     <!-- <div class="container"> -->
       <div class='list-title' id="watch">Stuff to watch</div>
-      <div class='item-list'>
+      <div class='item-list' id='watchList'>
         <% for (let task of tasks) {%>
           <% if (task.charAt(task.length -1) === "1") { %>
             <% task = task.slice(0, -1) %>
@@ -51,7 +51,7 @@
 
 
       <div class='list-title' id="eat">Places to eat</div>
-      <div class='item-list'>
+      <div class='item-list' id='eatList'>
         <% for (let task of tasks) {%>
           <% if (task.charAt(task.length -1) === "2") { %>
             <% task = task.slice(0, -1) %>
@@ -66,7 +66,7 @@
         <% } %>
       </div>
       <div class='list-title' id="read">Things to read</div>
-      <div class='item-list'>
+      <div class='item-list' id='readList'>
         <% for (let task of tasks) {%>
           <% if (task.charAt(task.length -1) === "3") { %>
             <% task = task.slice(0, -1) %>
@@ -81,7 +81,7 @@
         <% } %>
       </div>
       <div class='list-title' id="buy">Junk to buy</div>
-      <div class='item-list'>
+      <div class='item-list' id='buyList'>
         <% for (let task of tasks) {%>
           <% if (task.charAt(task.length -1) === "4") { %>
             <% task = task.slice(0, -1) %>

@@ -34,24 +34,26 @@ $(document).ready(function() {
 
   })
 
-  $(".task").on('click', function(){
+  $(".remove-item").on('click', function(){
     // const classId = $(this).parent().attr();
     // console.log(document.getElementById(`#${classId}`))
     // console.log($(this).innerHTML) ;
     // console.log(document.getElementsByClassName('.task').innerHTML) ;
-    let rowId = $(this).attr('row-id'); //Pull the attribute from your button
+    // let rowId = $(this).parent().attr('row-id'); //Pull the attribute from your button
     let row =  $(this).parent(); //Define the TR itself
 
     $.ajax({
       method: 'POST',
       url: '/delete',
-      data: rowId
+      data: { id: row.attr('id') }
     })
-      // when request is successful we clear the text box
-      // and call loadTweets() to make the new tweet show up.
-      .then(function() {
+      .then((res) => {
+        console.log('Response from backend: ', res);
         row.remove();
-      });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
 });
 
 });

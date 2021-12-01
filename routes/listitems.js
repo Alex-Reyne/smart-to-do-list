@@ -25,18 +25,24 @@ const userItems = (db) => {
       .then(result => {
         const items = result.rows;
         const listItems = [];
+        const IdList = [];
         for (const i of items) {
           listItems.push(i.name)
         }
         console.log(listItems)
+        for (const listID of items) {
+          IdList.push(listID.list_id)
+        }
+        console.log(IdList)
         //console.log(items)
-
+        const joinArr = listItems.map((element, index) => element + IdList[index]);
+        console.log(joinArr)
         const templateVars = {
-          user_id: items[0].id,
-          email: items[0].email,
-          username: items[0].username,
-          profile_pic: items[0].profile_pic,
-          tasks: listItems,
+          user_id: items.id,
+          email: items.email,
+          username: items.username,
+          profile_pic: items.profile_pic,
+          tasks: joinArr,
         }
 
         console.log(templateVars)

@@ -34,6 +34,8 @@
       <div id="watch">Stuff to watch</div>
       <div class='item-list'>
         <% for (let task of tasks) {%>
+          <% if (task.charAt(task.length -1) === "1") { %>
+            <% task = task.slice(0, -1) %>
         <div class='item-row'>
           <i class="far fa-square"></i>
           <i class="far fa-check-square"></i>
@@ -41,11 +43,15 @@
           <i class="far fa-minus-square"></i>
         </div>
         <% } %>
-
+        <% } %>
       </div>
+
+
       <div id="eat">Places to eat</div>
       <div class='item-list'>
         <% for (let task of tasks) {%>
+          <% if (task.charAt(task.length -1) === "2") { %>
+            <% task = task.slice(0, -1) %>
         <div class='item-row'>
           <i class="far fa-square"></i>
           <i class="far fa-check-square"></i>
@@ -53,11 +59,13 @@
           <i class="far fa-minus-square"></i>
         </div>
         <% } %>
-
+        <% } %>
       </div>
       <div id="read">Things to read</div>
       <div class='item-list'>
         <% for (let task of tasks) {%>
+          <% if (task.charAt(task.length -1) === "3") { %>
+            <% task = task.slice(0, -1) %>
         <div class='item-row'>
           <i class="far fa-square"></i>
           <i class="far fa-check-square"></i>
@@ -65,11 +73,13 @@
           <i class="far fa-minus-square"></i>
         </div>
         <% } %>
-
+        <% } %>
       </div>
       <div id="buy">Junk to buy</div>
       <div class='item-list'>
         <% for (let task of tasks) {%>
+          <% if (task.charAt(task.length -1) === "4") { %>
+            <% task = task.slice(0, -1) %>
         <div class='item-row'>
           <i class="far fa-square"></i>
           <i class="far fa-check-square"></i>
@@ -77,7 +87,7 @@
           <i class="far fa-minus-square"></i>
         </div>
         <% } %>
-
+        <% } %>
       </div>
     <!-- </div> -->
   </main>

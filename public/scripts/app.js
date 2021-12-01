@@ -1,5 +1,5 @@
 // Client facing scripts here
-const wolframApi = process.env.WOLFRAM_API
+
 
 // Get text from textarea form
 // search for specific words
@@ -12,11 +12,26 @@ const wolframApi = process.env.WOLFRAM_API
 $(document).ready(function() {
 
 
-  $('#add').on("click", function() {
-    $('#text').val()
+  $('#eatList').hide();
+  $('#readList').hide();
+  $('#watchList').hide();
+  $('#buyList').hide();
+
+
+  $('#eat').on('click', function() {
+    $('#eatList').show();
+
   })
+  $('#read').on('click', function() {
+    $('#readList').show();
 
+  })
+  $('#watch').on('click', function() {
+    $('#watchList').show();
 
+  })
+  $('#buy').on('click', function() {
+    $('#buyList').show();
 
-
+  })
 });

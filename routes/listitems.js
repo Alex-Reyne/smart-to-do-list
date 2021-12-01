@@ -15,26 +15,33 @@ const userItems = (db) => {
       username: null,
       profile_pic: null
     }
-
     console.log(templateVars)
     return res.render('items', templateVars)
   }
-    db.query(`SELECT *
-    FROM users WHERE id = ${id};`)
+    db.query(`SELECT items.*, users.*
+    FROM items
+    JOIN users ON users.id = user_id
+    WHERE users.id = ${id};`)
       .then(result => {
-        const items = result.rows[0];
-
-        console.log(items)
+        const items = result.rows;
+        const listItems = [];
+        for (const i of items) {
+          listItems.push(i.name)
+        }
+        console.log(listItems)
+        //console.log(items)
 
         const templateVars = {
           user_id: items.id,
           email: items.email,
           username: items.username,
-          profile_pic: items.profile_pic
+          profile_pic: items.profile_pic,
+          name: items.name,
+
         }
 
         console.log(templateVars)
-        res.render('items', templateVars)
+        res.render('lists', templateVars)
         return items;
       })
       .catch(err => {

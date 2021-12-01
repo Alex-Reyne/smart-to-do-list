@@ -87,3 +87,20 @@ form {
   }
 
 }
+
+.move-item {
+  @include hori-align;
+  color: $white;
+  background-color: $black;
+  margin: 0;
+  padding: 0 1rem 0 1rem;
+}
+
+#move-h4 {
+  margin-top: 1rem;
+}
+
+.move-h5 {
+  color: $button-color;
+  margin-bottom: 1rem;
+}

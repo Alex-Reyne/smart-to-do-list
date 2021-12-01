@@ -1,0 +1,12 @@
+@import 'base';
+
+body#move-body {
+  max-width: 10%;
+  max-height: 10%;
+  position: absolute;
+  z-index: 999;
+}
+
+span#move-span {
+  color: red;
+}

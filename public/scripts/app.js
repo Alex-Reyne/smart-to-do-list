@@ -14,6 +14,7 @@ $(document).ready(function() {
   $('#readList').hide();
   $('#watchList').hide();
   $('#buyList').hide();
+  $('.move-item').hide();
 
 
   $('#eat').on('click', function() {
@@ -31,15 +32,14 @@ $(document).ready(function() {
 
   $('#buy').on('click', function() {
     $('#buyList').slideToggle('slow');
-
   })
 
-  $(".remove-item").on('click', function(){
-    // const classId = $(this).parent().attr();
-    // console.log(document.getElementById(`#${classId}`))
-    // console.log($(this).innerHTML) ;
-    // console.log(document.getElementsByClassName('.task').innerHTML) ;
-    // let rowId = $(this).parent().attr('row-id'); //Pull the attribute from your button
+  $('.item-row').on('click', function() {
+    let row =  $(this).siblings('.item-row');
+    $(row).slideToggle('slow');
+  })
+
+  $(".remove-item").on('click', function() {
     let row =  $(this).parent(); //Define the TR itself
 
     $.ajax({

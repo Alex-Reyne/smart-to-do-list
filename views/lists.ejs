@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main_lists.css">
   <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Import google fonts  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +19,8 @@
   <!-- javascript files -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/items.js"></script>
+    <script type="text/javascript" src="/scripts/listitems.js"></script>
   <title>Smart To-Do Lists</title>
 </head>
 <!-- NAV BAR  -->
@@ -31,48 +34,52 @@
       <button type="submit" id="add">Add</button>
     </form>
     <!-- <div class="container"> -->
-      <div id="watch">Stuff to watch</div>
+      <div class='list-title' id="watch">Stuff to watch</div>
       <div class='item-list'>
         <% for (let task of tasks) {%>
         <div class='item-row'>
-          <i class="far fa-square"></i>
-          <i class="far fa-check-square"></i>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
           <h3><%= task %></h3>
           <i class="far fa-minus-square"></i>
         </div>
         <% } %>
 
       </div>
-      <div id="eat">Places to eat</div>
+      <div class='list-title' id="eat">Places to eat</div>
       <div class='item-list'>
         <% for (let task of tasks) {%>
         <div class='item-row'>
-          <i class="far fa-square"></i>
-          <i class="far fa-check-square"></i>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
           <h3><%= task %></h3>
           <i class="far fa-minus-square"></i>
         </div>
         <% } %>
 
       </div>
-      <div id="read">Things to read</div>
+      <div class='list-title' id="read">Things to read</div>
       <div class='item-list'>
         <% for (let task of tasks) {%>
         <div class='item-row'>
-          <i class="far fa-square"></i>
-          <i class="far fa-check-square"></i>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
           <h3><%= task %></h3>
           <i class="far fa-minus-square"></i>
         </div>
         <% } %>
 
       </div>
-      <div id="buy">Junk to buy</div>
+      <div class='list-title' id="buy">Junk to buy</div>
       <div class='item-list'>
         <% for (let task of tasks) {%>
         <div class='item-row'>
-          <i class="far fa-square"></i>
-          <i class="far fa-check-square"></i>
+          <!-- <i class="far fa-square"></i>
+          <i class="far fa-check-square"></i> -->
+          <i class="fas fa-circle"></i>
           <h3><%= task %></h3>
           <i class="far fa-minus-square"></i>
         </div>

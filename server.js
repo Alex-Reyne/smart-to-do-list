@@ -51,6 +51,7 @@ const signupRoutes = require("./routes/signup");
 const logoutRoutes = require("./routes/logout");
 const deleteRoutes = require("./routes/delete");
 const moveRoutes = require("./routes/move");
+const notFound = require("./routes/not-found");
 
 const listRoutes = require("./routes/lists");
 const listitemsRoutes = require("./routes/listitems");
@@ -69,6 +70,7 @@ app.use("/lists", listitemsRoutes(db));
 app.use("/items", listitemsRoutes(db));
 app.use("/delete", deleteRoutes(db));
 app.use("/move", moveRoutes(db));
+app.use("/not-found", notFound(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
@@ -91,6 +93,43 @@ app.get("/", (req, res) => {
   return res.redirect('/lists')
 
   });
+
+// routes to 404 page
+app.get('*', function(req, res){
+  const user_id = req.session.user_id;
+
+    if (!user_id) {
+      const templateVars = {
+        user_id: null,
+        email: null,
+        username: null,
+        profile_pic: null
+      }
+      return res.render('not-found', templateVars)
+    }
+
+    db.query(`
+      SELECT * FROM users
+      WHERE id = ${user_id};
+    `)
+      .then(result => {
+        const user = result.rows[0];
+        const templateVars = {
+          user_id: user.id,
+          email: user.email,
+          username: user.username,
+          profile_pic: user.profile_pic,
+        }
+        res.render('not-found', templateVars)
+      })
+      .catch(err => {
+        console.log(err)
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

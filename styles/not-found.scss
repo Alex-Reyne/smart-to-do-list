@@ -1,0 +1,15 @@
+@import 'base';
+
+section {
+  @include vert-align;
+  flex-direction: column;
+  font-family: $button-font;
+  font-size: xx-large;
+  color: $white;
+  margin-top: 10rem;
+
+  img {
+    height: 20rem;
+    width: 20rem;
+  }
+}

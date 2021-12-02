@@ -9,14 +9,7 @@ const userItems = (db) => {
     const id = req.session.user_id
 
   if (!id) {
-    const templateVars = {
-      user_id: null,
-      email: null,
-      username: null,
-      profile_pic: null
-    }
-    // console.log(templateVars)
-    return res.render('items', templateVars)
+    return res.redirect('login')
   }
     db.query(`SELECT items.*, items.id as item_id, users.*
     FROM items
@@ -25,7 +18,7 @@ const userItems = (db) => {
     AND items.delete_date_time IS null;`)
       .then(result => {
         const items = result.rows;
-        console.log(result.rows)
+        // console.log(result.rows)
         const listItems = [];
         const IdList = [];
         for (const i of items) {
@@ -35,7 +28,7 @@ const userItems = (db) => {
         for (const listID of items) {
           IdList.push(listID.list_id)
         }
-        console.log('items:', items)
+        // console.log('items:', items)
 
         const itemAndId = {};
         for (let no of items) {
@@ -46,7 +39,7 @@ const userItems = (db) => {
 
           itemAndId[no.list_id][no.item_id] = no.name;
         }
-        console.log('itemAndId; ', itemAndId);
+        // console.log('itemAndId; ', itemAndId);
 
 
         // console.log('items in listitems: ', items)

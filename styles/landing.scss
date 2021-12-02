@@ -1,5 +1,12 @@
 @import 'base';
 
+.logo {
+  font-size: x-large;
+  font-family: $button-font;
+  height: 4rem;
+  width: auto;
+}
+
 h1 {
   font-size: xx-large;
   margin-bottom: 2em;

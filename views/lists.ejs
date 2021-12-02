@@ -42,7 +42,8 @@
           <!-- <i class="far fa-square"></i>
           <i class="far fa-check-square"></i> -->
           <i class="fas fa-circle"></i>
-          <h3><%= itemAndId[item][key] %></h3>
+          <h3 class='item-name <%= key %>'><%= itemAndId[item][key] %></h3>
+          <div class='move-item <%= key %>'><%- include('partials/_move-item') %></div>
           <i class="far fa-minus-square remove-item"></i>
         </div>
         <!-- <% //} %> -->
@@ -61,7 +62,8 @@
           <!-- <i class="far fa-square"></i>
           <i class="far fa-check-square"></i> -->
           <i class="fas fa-circle"></i>
-          <h3><%= itemAndId[item][key] %></h3>
+          <h3 class='item-name <%= key %>'><%= itemAndId[item][key] %></h3>
+          <div class='move-item <%= key %>'><%- include('partials/_move-item') %></div>
           <i class="far fa-minus-square remove-item"></i>
         </div>
         <!-- <% //} %> -->
@@ -80,7 +82,8 @@
           <!-- <i class="far fa-square"></i>
           <i class="far fa-check-square"></i> -->
           <i class="fas fa-circle"></i>
-          <h3><%= itemAndId[item][key] %></h3>
+          <h3 class='item-name <%= key %>'><%= itemAndId[item][key] %></h3>
+          <div class='move-item <%= key %>'><%- include('partials/_move-item') %></div>
           <i class="far fa-minus-square remove-item"></i>
         </div>
         <!-- <% //} %> -->
@@ -100,7 +103,8 @@
           <!-- <i class="far fa-square"></i>
           <i class="far fa-check-square"></i> -->
           <i class="fas fa-circle"></i>
-          <h3><%= itemAndId[item][key] %></h3>
+          <h3 class='item-name <%= key %>'><%= itemAndId[item][key] %></h3>
+          <div class='move-item <%= key %>'><%- include('partials/_move-item') %></div>
           <i class="far fa-minus-square remove-item"></i>
         </div>
         <!-- <% //} %> -->

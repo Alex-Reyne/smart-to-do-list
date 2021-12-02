@@ -1,7 +1,7 @@
 const { application, response, query } = require('express');
 const express = require('express');
 const router  = express.Router();
-
+const bcrypt = require("bcryptjs");
 
 const userProfile = (db) => {
   router.get("/", (req, res) => {
@@ -40,7 +40,7 @@ const userProfile = (db) => {
     const queryParams = [];
     queryParams.push(req.body.username)
     queryParams.push(req.body.email)
-    queryParams.push(req.body.password)
+    queryParams.push(bcrypt.hashSync(req.body.password, 10))
 
     db.query(`
       UPDATE users

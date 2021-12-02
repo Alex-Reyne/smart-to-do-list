@@ -88,6 +88,16 @@ form {
 
 }
 
+#move-span {
+  @include vert-align;
+  flex-direction: column;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+}
+
 .move-item {
   @include hori-align;
   color: $white;
@@ -98,9 +108,12 @@ form {
 
 #move-h4 {
   margin-top: 1rem;
+  margin-bottom: 0;
 }
 
-.move-h5 {
+.move-h {
   color: $button-color;
   margin-bottom: 1rem;
+  margin-top: 0;
+  padding: .5rem;
 }

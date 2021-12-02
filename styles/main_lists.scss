@@ -55,6 +55,7 @@ form {
     flex-direction: row;
     align-items: center;
     margin: 1rem 0 1rem 0;
+    cursor: pointer;
 
     h3 {
       flex-grow: 3;
@@ -102,6 +103,7 @@ form {
   @include hori-align;
   color: $white;
   background-color: $black;
+  border: .25rem solid $button-color ;
   margin: 0;
   padding: 0 1rem 0 1rem;
 }
@@ -116,4 +118,5 @@ form {
   margin-bottom: 1rem;
   margin-top: 0;
   padding: .5rem;
+  cursor: pointer;
 }

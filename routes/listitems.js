@@ -150,16 +150,31 @@ const userItems = (db) => {
                         .status(500)
                         .json({ error: err.message });
                     });
-                }
-              })
-            }
-          })
-        }
-      });
-      return router;
-    }
+                  }
+                })
+              }
+            })
+          }
+        });
+        return router;
+      }
 
-  });
+      db.query(`INSERT INTO items
+      (name, list_id, user_id) VALUES ('${item}', ${listId}, ${id})
+        RETURNING *;
+        `)
+        // console.log('req', item)
+        .then(result => {
+          res.redirect('/lists');
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
+    });
+
+
   return router;
 };
 module.exports = userItems;

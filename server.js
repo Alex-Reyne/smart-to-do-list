@@ -43,8 +43,8 @@ app.use(cookieSession({
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-// const usersRoutes = require("./routes/users");
-// const widgetsRoutes = require("./routes/widgets");
+const usersRoutes = require("./routes/users");
+const widgetsRoutes = require("./routes/widgets");
 const profileRoutes = require("./routes/profile");
 const loginRoutes = require("./routes/login");
 const signupRoutes = require("./routes/signup");
@@ -52,12 +52,13 @@ const logoutRoutes = require("./routes/logout");
 const deleteRoutes = require("./routes/delete");
 const moveRoutes = require("./routes/move");
 
+const listRoutes = require("./routes/lists");
 const listitemsRoutes = require("./routes/listitems");
 // const userItems = require("./routes/listitems")
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-// app.use("/api/users", usersRoutes(db));
-// app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/users", usersRoutes(db));
+app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 app.use("/login", loginRoutes(db));
 app.use("/signup", signupRoutes(db));
@@ -65,6 +66,7 @@ app.use("/logout", logoutRoutes);
 
 app.use("/profile", profileRoutes(db));
 app.use("/lists", listitemsRoutes(db));
+app.use("/items", listitemsRoutes(db));
 app.use("/delete", deleteRoutes(db));
 app.use("/move", moveRoutes(db));
 // Home page

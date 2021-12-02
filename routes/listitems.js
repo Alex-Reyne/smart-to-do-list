@@ -83,6 +83,9 @@ const userItems = (db) => {
     }
     else if (item.includes('read')) {
       listId = 3;
+    }
+    else if (item.includes('buy')) {
+      listId = 4;
     } else {
       foodApi(item)
       .then((result) => {

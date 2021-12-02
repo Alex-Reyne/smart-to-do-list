@@ -6,15 +6,7 @@ const userLists = (db) => {
     const id = req.session.user_id
 
   if (!id) {
-    const templateVars = {
-      user_id: null,
-      email: null,
-      username: null,
-      profile_pic: null
-    }
-
-    // console.log(templateVars)
-    return res.render('lists', templateVars)
+    return res.redirect('login')
   }
   // console.log('========', id)
     db.query(`SELECT users.*, items.id as item_id
@@ -39,6 +31,7 @@ const userLists = (db) => {
         return items;
       })
       .catch(err => {
+        console.log(err)
         res
           .status(500)
           .json({ error: err.message });

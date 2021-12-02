@@ -29,16 +29,17 @@ const loginPage = (db) => {
     router.post('/', (req, res) => {
       const {email, password} = req.body;
       login(email, password, db)
-      .then(user => {
-        if (!user) {
-          res.status(401);
-          return res.send('just checking');
-    }
-    req.session.user_id = user.id;
-    res.redirect("lists");
-    // res.send({username: user.username, email: user.email, id: user.id});
-  })
-  .catch(err => res.send(err));
+        .then(user => {
+          console.log(user)
+          if (!user) {
+            res.status(401);
+            return res.send('just checking');
+          }
+          req.session.user_id = user.id;
+          res.redirect("lists");
+          // res.send({username: user.username, email: user.email, id: user.id});
+        })
+        .catch(err => res.send(err));
 });
 
 return router;

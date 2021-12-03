@@ -1,4 +1,3 @@
-const { application } = require('express');
 const express = require('express');
 const { addUser } = require('./helperFunctions');
 const router  = express.Router();
@@ -20,7 +19,6 @@ const signUpPage = (db) => {
       profile_pic: null
     }
 
-    // console.log(templateVars)
     return res.render('signup', templateVars);
 
   });

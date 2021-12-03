@@ -14,7 +14,6 @@ const userProfile = (db) => {
     db.query(`SELECT * FROM users WHERE id = ${id};`)
       .then(data => {
         const users = data.rows[0];
-        console.log(data.rows)
 
         const templateVars = {
           user_id: users.id,
@@ -24,7 +23,6 @@ const userProfile = (db) => {
           profile_pic: users.profile_pic
         }
 
-        console.log(templateVars)
         res.render('profile.ejs', templateVars);
         return users;
       })
@@ -36,7 +34,6 @@ const userProfile = (db) => {
   });
 
   router.post('/:userid', (req, res) => {
-    console.log('params: ', req.params, 'body: ', req.body);
     const queryParams = [];
     queryParams.push(req.body.username)
     queryParams.push(req.body.email)

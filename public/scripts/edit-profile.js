@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+  // use array to do this with loop
+  // maybe create helper function?
   $('#edit-username').hide();
   $('#edit-email').hide();
   $('#edit-password').hide();
@@ -12,7 +13,7 @@ $(document).ready(function() {
     $('#edit-email').slideDown();
     $('#edit-password').slideDown();
     $('#update-profile').show();
-  })
+  });
 
   $('#update-profile').on('click', function() {
     $('#edit-profile').show();
@@ -20,6 +21,6 @@ $(document).ready(function() {
     $('#edit-email').slideUp();
     $('#edit-password').slideUp();
     $('#update-profile').hide();
-  })
+  });
 
 });

@@ -10,6 +10,8 @@
 //
 
 $(document).ready(function() {
+
+  // make loop with array to do this instead
   $('#eatList').hide();
   $('#readList').hide();
   $('#watchList').hide();
@@ -43,7 +45,7 @@ $(document).ready(function() {
 
   $(".mo-1").on('click', function() {
     const row = $(this).parent().parent().parent().parent();
-    console.log('ROW: ', row.attr('id'));
+
     $(row).appendTo("#watch");
 
     $.ajax({
@@ -52,7 +54,7 @@ $(document).ready(function() {
       data: { list_id: 1, item_id: row.attr('id')}
     })
       .then((res) => {
-        console.log('Response from backend: ', res);
+
         $(row).remove();
       })
       .catch((err) => {
@@ -65,7 +67,7 @@ $(document).ready(function() {
 
   $(".mo-2").on('click', function() {
     const row = $(this).parent().parent().parent().parent()
-    console.log('ROW: ', row.attr('id'))
+
     $(row).appendTo("#eat");
 
     $.ajax({
@@ -74,7 +76,6 @@ $(document).ready(function() {
       data: { list_id: 2, item_id: row.attr('id')}
     })
       .then((res) => {
-        console.log('Response from backend: ', res);
         $(row).remove();
       })
       .catch((err) => {
@@ -87,7 +88,6 @@ $(document).ready(function() {
 
   $(".mo-3").on('click', function() {
     const row = $(this).parent().parent().parent().parent()
-    console.log('ROW: ', row.attr('id'))
     $(row).appendTo("#read");
 
     $.ajax({
@@ -96,7 +96,6 @@ $(document).ready(function() {
       data: { list_id: 3, item_id: row.attr('id')}
     })
       .then((res) => {
-        console.log('Response from backend: ', res);
         $(row).remove();
       })
       .catch((err) => {
@@ -109,7 +108,7 @@ $(document).ready(function() {
 
   $(".mo-4").on('click', function() {
     const row = $(this).parent().parent().parent().parent()
-    console.log('ROW: ', row.attr('class'))
+
 
 
     $.ajax({
@@ -118,7 +117,6 @@ $(document).ready(function() {
       data: { list_id: 4, item_id: row.attr('id')}
     })
       .then((res) => {
-        console.log('Response from backend: ', res);
         $(row).remove();
       })
       .catch((err) => {
@@ -138,7 +136,6 @@ $(document).ready(function() {
       data: { id: row.attr('id') }
     })
       .then((res) => {
-        console.log('Response from backend: ', res);
         row.remove();
       })
       .catch((err) => {

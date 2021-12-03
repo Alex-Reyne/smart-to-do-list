@@ -1,4 +1,3 @@
-const { application } = require('express');
 const express = require('express');
 const { addUser } = require('./helperFunctions');
 const router  = express.Router();
@@ -19,7 +18,6 @@ const signUpPage = (db) => {
       profile_pic: null
     }
 
-    console.log(templateVars)
     return res.render('signup', templateVars);
 
   });
@@ -28,7 +26,6 @@ const signUpPage = (db) => {
   // Register as a new user
   router.post('/', (req, res) => {
     const user = req.body;
-    // user.password = bcrypt.hashSync(user.password, 10);
 
     addUser(user, db)
     .then(user => {

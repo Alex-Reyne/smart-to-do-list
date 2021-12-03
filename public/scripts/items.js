@@ -1,3 +1,4 @@
+// delete all this
 
 $(document).ready(function() {
   $('.fa-check-square').hide();

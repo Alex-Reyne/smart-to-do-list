@@ -1,7 +1,6 @@
-const { application } = require('express');
 const express = require('express');
 const router  = express.Router();
-const { wolfRam, booksApis, moviesApi, foodApi} = require('../lib/apis.js')
+const { booksApis, moviesApi, foodApi} = require('../lib/apis.js')
 
 
 const userItems = (db) => {
@@ -18,17 +17,14 @@ const userItems = (db) => {
     AND items.delete_date_time IS null;`)
       .then(result => {
         const items = result.rows;
-        // console.log(result.rows)
         const listItems = [];
         const IdList = [];
         for (const i of items) {
           listItems.push(i.name)
         }
-        // console.log(listItems)
         for (const listID of items) {
           IdList.push(listID.list_id)
         }
-        // console.log('items:', items)
 
         const itemAndId = {};
         for (let no of items) {
@@ -39,12 +35,9 @@ const userItems = (db) => {
 
           itemAndId[no.list_id][no.item_id] = no.name;
         }
-        // console.log('itemAndId; ', itemAndId);
 
 
-        // console.log('items in listitems: ', items)
         const joinArr = listItems.map((element, index) => element + IdList[index]);
-        // console.log(joinArr)
         const templateVars = {
           user_id: items[0].id,
           email: items[0].email,
@@ -55,7 +48,6 @@ const userItems = (db) => {
 
         }
 
-        // console.log(templateVars)
         res.render('lists', templateVars)
         return items;
       })
@@ -71,8 +63,6 @@ const userItems = (db) => {
     let listId = 4;
     const item = req.body.item.toLowerCase();
     const id = req.session.user_id;
-    // console.log('items', item);
-
 
 
     if (item.includes('watch')) {
@@ -89,14 +79,12 @@ const userItems = (db) => {
     } else {
       foodApi(item)
       .then((result) => {
-        console.log('item in food: ', item)
-        console.log('result in food: ', result)
+
         if (result) {
           db.query(`INSERT INTO items
           (name, list_id, user_id) VALUES ('${item}', 2, ${id})
           RETURNING *;
           `)
-          // console.log('req', item)
           .then(result => {
             res.redirect('/lists');
           })
@@ -107,8 +95,7 @@ const userItems = (db) => {
           });
         } else {
           booksApis(item).then(result => {
-            console.log('item in books: ', item)
-            console.log('result in books: ', result)
+
             if (result) {
               db.query(`INSERT INTO items
               (name, list_id, user_id) VALUES ('${item}', 3, ${id})
@@ -124,8 +111,6 @@ const userItems = (db) => {
               })
             } else {
               moviesApi(item).then((result) => {
-                console.log('item in movies: ', item)
-                console.log('result in movies: ', result)
                 if (result) {
                 db.query(`INSERT INTO items
                   (name, list_id, user_id) VALUES ('${item}', 1, ${id})
@@ -144,7 +129,6 @@ const userItems = (db) => {
                   (name, list_id, user_id) VALUES ('${item}', 4, ${id})
                     RETURNING *;
                     `)
-                    // console.log('req', item)
                     .then(result => {
                       res.redirect('/lists');
                     })
@@ -166,7 +150,6 @@ const userItems = (db) => {
       (name, list_id, user_id) VALUES ('${item}', ${listId}, ${id})
         RETURNING *;
         `)
-        // console.log('req', item)
         .then(result => {
           res.redirect('/lists');
         })

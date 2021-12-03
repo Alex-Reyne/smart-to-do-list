@@ -20,7 +20,6 @@ const loginPage = (db) => {
       profile_pic: null
     }
 
-    console.log(templateVars)
     return res.render('login', templateVars);
 
     });
@@ -30,7 +29,6 @@ const loginPage = (db) => {
       const {email, password} = req.body;
       login(email, password, db)
         .then(user => {
-          console.log(user)
           if (!user) {
             res.status(401);
             return res.send('just checking');

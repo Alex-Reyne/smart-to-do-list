@@ -5,10 +5,8 @@ const moveItem = (db) => {
   router.post("/", (req, res) => {
     const list_id = req.body.list_id;
     const item_id = req.body.item_id;
-    // console.log(req.body);
     db.query(`UPDATE items SET list_id = ${list_id} WHERE id = ${item_id};`)
       .then(data => {
-        // console.log('data: ', data);
         return res.status(200).json({});
       })
       .catch(err => {

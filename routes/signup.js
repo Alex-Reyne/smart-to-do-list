@@ -8,6 +8,7 @@ const signUpPage = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id;
 
+    // if the user has an account and is logged in it will show the lists page
     if (id) {
       return res.redirect('/lists');
     }
@@ -19,7 +20,7 @@ const signUpPage = (db) => {
       profile_pic: null
     }
 
-    console.log(templateVars)
+    // console.log(templateVars)
     return res.render('signup', templateVars);
 
   });
@@ -28,7 +29,6 @@ const signUpPage = (db) => {
   // Register as a new user
   router.post('/', (req, res) => {
     const user = req.body;
-    // user.password = bcrypt.hashSync(user.password, 10);
 
     addUser(user, db)
     .then(user => {
@@ -41,7 +41,6 @@ const signUpPage = (db) => {
 return router;
 
 }
-
 
 
 module.exports = signUpPage;

@@ -7,6 +7,7 @@ const signUpPage = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id;
 
+    // if the user has an account and is logged in it will show the lists page
     if (id) {
       return res.redirect('/lists');
     }
@@ -38,7 +39,6 @@ const signUpPage = (db) => {
 return router;
 
 }
-
 
 
 module.exports = signUpPage;

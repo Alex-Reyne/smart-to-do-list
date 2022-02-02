@@ -9,6 +9,7 @@ const loginPage = (db) => {
   router.get("/", (req, res) => {
     const id = req.session.user_id
 
+    // if the user is logged in it will show the lists page
     if (id) {
       return res.redirect('/lists');
     }
@@ -31,7 +32,7 @@ const loginPage = (db) => {
         .then(user => {
           if (!user) {
             res.status(401);
-            return res.send('just checking');
+            return res.send('user not found! please try again!');
           }
           req.session.user_id = user.id;
           res.redirect("lists");
@@ -43,6 +44,5 @@ const loginPage = (db) => {
 return router;
 
 };
-
 
 module.exports = loginPage;

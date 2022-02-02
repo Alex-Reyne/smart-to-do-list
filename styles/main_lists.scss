@@ -1,10 +1,13 @@
-@import 'base';
+@import "base";
 
 body {
   background-color: $background;
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 8em;
   color: $white;
   font-family: $button-font;
@@ -32,9 +35,12 @@ input {
   padding: 1em 1em;
   @include vert-align;
   font-size: 1.5em;
+  cursor: pointer;
+  width: 50%;
 }
 
 form {
+  max-width: 50vw;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -43,12 +49,12 @@ form {
 .item-list {
   display: flex;
   flex-direction: column;
+  width: 50%;
   color: $black;
   background-color: $white;
   font-family: $main-text;
   font-size: x-large;
-  width: 100%;
-  border: .25rem solid $button-color;
+  border: 0.25rem solid $button-color;
 
   .item-row {
     display: flex;
@@ -86,7 +92,6 @@ form {
     color: red;
     margin: 0 1rem 0 1rem;
   }
-
 }
 
 #move-span {
@@ -103,7 +108,7 @@ form {
   @include hori-align;
   color: $white;
   background-color: $black;
-  border: .25rem solid $button-color ;
+  border: 0.25rem solid $button-color;
   margin: 0;
   padding: 0 1rem 0 1rem;
 }
@@ -118,6 +123,6 @@ form {
   color: $button-color;
   margin-bottom: 1rem;
   margin-top: 0;
-  padding: .5rem;
+  padding: 0.5rem;
   cursor: pointer;
 }
